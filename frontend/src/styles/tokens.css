@@ -100,7 +100,32 @@
   --section-masters-top: 885px;
   --section-masters-width: 390px;
   --section-masters-height: 844px;
+  --section-masters-end: 1729px;
   --hero-section-end: 813px;
+  /* Секция Alina: top 1729px, ширина 390, высота 844 */
+  --section-alina-top: 1729px;
+  --section-alina-width: 390px;
+  --section-alina-height: 844px;
+  /* Декоративный текст ALINA в секции Alina: top 54px, left -17px; 424×98; цвет #E6E6E6 */
+  --alina-decoration-top: 54px;
+  --alina-decoration-left: 5px;
+  --alina-decoration-width: 424px;
+  --alina-decoration-height: 98px;
+  /* Изображение в секции Alina: top 98px, left 116px; 158×161 */
+  --alina-img-top: 98px;
+  --alina-img-left: 116px;
+  --alina-img-width: 158px;
+  --alina-img-height: 161px;
+  /* Заголовок секции Alina: top 275px, left 55px; 281×70 */
+  --alina-title-top: 275px;
+  --alina-title-left: 55px;
+  --alina-title-width: 281px;
+  --alina-title-height: 70px;
+  /* Текст в секции Alina: top 369px, left 39px; 312×80 */
+  --alina-text-top: 369px;
+  --alina-text-left: 39px;
+  --alina-text-width: 312px;
+  --alina-text-height: 80px;
   /* Кнопка в секции «Для мастеров»: top 717px, left 20px относительно секции */
   --masters-btn-top: 717px;
   --masters-btn-left: 20px;

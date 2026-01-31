@@ -492,3 +492,106 @@ a.btn-icon {
   border-radius: 20px;
   pointer-events: none;
 }
+
+/* Секция Alina: top 1729px от верха, ширина 390, высота 844; следующие объекты — относительно неё */
+.section-alina {
+  position: relative;
+  width: 100%;
+  max-width: var(--section-alina-width);
+  min-height: var(--section-alina-height);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(var(--section-alina-top) - var(--section-masters-end));
+  box-sizing: border-box;
+  opacity: 1;
+  overflow: visible;
+}
+
+/* Декоративное изображение h1.svg — позади Frame 12: top 54px, left -17px; 424×98; цвет в SVG #E6E6E6.
+   Чтобы увеличить на экране: подними значения --alina-decoration-width/height в tokens.css
+   или добавь transform: scale(1.2); здесь (1.2 = +20%). */
+.alina__decoration {
+  position: absolute;
+  top: var(--alina-decoration-top);
+  left: var(--alina-decoration-left);
+  width: var(--alina-decoration-width);
+  height: var(--alina-decoration-height);
+  display: block;
+  opacity: 1;
+  z-index: 0;
+  object-fit: contain;
+  object-position: center top;
+  transform: scale(1.05);
+}
+
+/* Изображение в секции Alina: top 98px, left 116px; 158×161, border-radius 20px — поверх декора */
+.alina__img {
+  position: absolute;
+  top: var(--alina-img-top);
+  left: var(--alina-img-left);
+  width: var(--alina-img-width);
+  height: var(--alina-img-height);
+  display: block;
+  border-radius: 20px;
+  opacity: 1;
+  z-index: 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Заголовок секции Alina: top 275px, left 55px; 281×70; Onest 32px, 110%, center, opacity 1 */
+.alina__title {
+  position: absolute;
+  top: var(--alina-title-top);
+  left: var(--alina-title-left);
+  width: var(--alina-title-width);
+  min-height: var(--alina-title-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+.alina__title-line {
+  display: block;
+}
+
+/* «ВАШ ЭКСПЕРТ» — Onest 200 ExtraLight */
+.alina__title-line--light {
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* «АЛИНА БРОВИСТ» — Onest 600 SemiBold + градиент как ОБУЧЕНИЕ */
+.alina__title-line--gradient {
+  font-weight: 600;
+  font-style: normal;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Текст в секции Alina: top 369px, left 39px; 312×80; Onest 400, 14px, 140%, center, opacity 0.6, цвет #000000 */
+.alina__text {
+  position: absolute;
+  top: var(--alina-text-top);
+  left: var(--alina-text-left);
+  width: var(--alina-text-width);
+  min-height: var(--alina-text-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #000000;
+  opacity: 0.6;
+  box-sizing: border-box;
+}
