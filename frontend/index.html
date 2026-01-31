@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<link rel="icon" type="image/svg+xml" href="/logo.svg">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>пися</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@200;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <header class="header header--over-image" id="header">
+            <div class="header__container container">
+                <div class="header__ui">
+                    <a href="/" class="header__logo">
+                        <img src="/logo.svg" alt="Логотип" class="logo">
+                    </a>
+                    <a href="/info" class="btn-icon header__btn-icon" aria-label="Подробнее">
+                        <svg class="btn-icon__img" width="16" height="14" viewBox="0 0 24 16" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="accent-gradient" x1="0%" y1="100%" x2="3%" y2="0%"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop offset="2.61%" stop-color="#333333" />
+                                    <stop offset="50.43%" stop-color="#8F8F8F" />
+                                    <stop offset="98.25%" stop-color="#333333" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M5.51422 15L23 15M22.9994 8L1 8M23 1L13.3363 1" stroke="url(#accent-gradient)"
+                                stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <section class="hero">
+                <div class="hero__visual" id="hero-visual">
+                    <img src="/Frame%2011.svg" alt="" class="hero__img" width="390" height="358" loading="eager">
+                </div>
+                <div class="hero__content">
+                    <h1 class="hero__title"><span class="hero__title-line">ЭСТЕТИКА. <span
+                                class="hero__title--strong">БРОВИ.</span></span><span
+                            class="hero__title-line hero__title--gradient">ОБУЧЕНИЕ.</span></h1>
+                    <p class="hero__text">
+                        Деликатный перманентный макияж, который выглядит естественно. Без боли, «синевы» и плотных
+                        корок. Работаю в авторских техниках, которым обучаю других мастеров.
+                    </p>
+                    <div class="hero__cards">
+                        <img src="/cardHero1.svg" alt="" class="hero__card" width="169" height="206" loading="lazy">
+                        <img src="/cardHero2.svg" alt="" class="hero__card" width="169" height="206" loading="lazy">
+                    </div>
+                    <a href="#" class="hero__btn" aria-label="Кнопка hero">
+                        <img src="/btnHero.svg" alt="" class="hero__btn-img" width="350" height="55" loading="lazy">
+                    </a>
+                </div>
+            </section>
+            <section class="section-masters">
+                <h2 class="masters__title">
+                    <span class="masters__title-line masters__title-line--light">ДЛЯ</span>
+                    <span class="masters__title-line masters__title-line--medium">МАСТЕРОВ</span>
+                </h2>
+                <p class="masters__text">Хотите делать такие же «воздушные» брови? Я записала уроки по своей авторской технике</p>
+                <img src="/cardForMasters2.svg" alt="" class="masters__card masters__card--2" width="349" height="236" loading="lazy">
+                <img src="/cardForMasters.svg" alt="" class="masters__card" width="350" height="236" loading="lazy">
+                <a href="#" class="masters__btn" aria-label="Для мастеров">
+                    <img src="/btnForMasters.svg" alt="" class="masters__btn-img" width="350" height="55"
+                        loading="lazy">
+                </a>
+            </section>
+            <div class="container section">
+                <h1>Мобильная версия</h1>
+                <p>Базовая разметка готова под mobile-first. Сначала верстаем под мобилку, затем добавляем стили для
+                    планшета и десктопа через <code>min-width</code>.</p>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="footer__container container">
+                <p>© 2025</p>
+            </div>
+        </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

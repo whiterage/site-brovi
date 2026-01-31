@@ -1,0 +1,64 @@
+/* ПЛАНШЕТ И ДЕСКТОП — только min-width (mobile-first) */
+
+/* От 768px — планшет */
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+
+  .header__container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__nav {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .header__nav a {
+    padding: var(--spacing-sm) 0;
+    min-height: auto;
+    line-height: inherit;
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Утилиты видимости */
+  .hide-on-mobile {
+    display: revert;
+  }
+
+  .show-on-mobile {
+    display: none;
+  }
+}
+
+/* От 1025px — десктоп */
+@media (min-width: 1025px) {
+  .container {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

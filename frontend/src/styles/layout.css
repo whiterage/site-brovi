@@ -1,0 +1,115 @@
+/* LAYOUT — Mobile-first: база = мобильный (одна колонка, блоки друг под другом) */
+
+/* Header — группа UI поверх контента, без фона (просвечивает hero) */
+.header {
+  background: transparent;
+  border-bottom: none;
+  padding-top: var(--header-top);
+  padding-bottom: var(--spacing-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: var(--header-ui-left);
+  padding-right: var(--header-ui-left);
+}
+
+/* Группа UI: логотип слева + кнопка справа, размеры по макету */
+.header__ui {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--header-ui-width);
+  height: var(--header-ui-height);
+}
+
+.header__logo {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.header__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header__nav a {
+  display: block;
+  padding: var(--spacing-sm) 0;
+  min-height: 44px;
+  line-height: 2;
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-bg-light);
+  border-top: 1px solid var(--color-border);
+  padding: var(--spacing-xl) 0;
+  margin-top: auto;
+}
+
+.footer__container {
+  text-align: center;
+  color: var(--color-text-light);
+}
+
+/* Grid системы */
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.grid-2 {
+  grid-template-columns: 1fr;
+}
+
+.grid-3 {
+  grid-template-columns: 1fr;
+}
+
+.grid-4 {
+  grid-template-columns: 1fr;
+}
+
+/* Flex utilities */
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gap-sm { gap: var(--spacing-sm); }
+.gap-md { gap: var(--spacing-md); }
+.gap-lg { gap: var(--spacing-lg); }
+
+/* Mobile-first утилиты видимости (переопределяются в tablet.css) */
+.show-on-mobile {
+  display: block;
+}
+
+.hide-on-mobile {
+  display: none;
+}

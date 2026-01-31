@@ -1,0 +1,494 @@
+/* КОМПОНЕНТЫ - Переиспользуемые элементы */
+
+/* Кнопки */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  min-height: 44px;
+  /* Минимальный размер для touch-устройств */
+  min-width: 44px;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Карточки */
+.card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* Формы */
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-base);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color var(--transition-fast);
+  min-height: 44px;
+  /* Для touch-устройств */
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Логотип — без фона; над фото = белый, над белым = перелив #333 → #8f8f8f → #333 */
+.header__logo {
+  position: relative;
+  display: inline-block;
+  width: var(--logo-width);
+  height: var(--logo-height);
+  flex-shrink: 0;
+  background: none !important;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: inherit;
+}
+
+/* Над изображением: лого белый (картинка + filter) */
+.header--over-image .header__logo .logo {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+.header--over-image .header__logo::after {
+  display: none;
+}
+
+/* Над белым: перелив в форме лого (#333 → #8f8f8f → #333) */
+.header--over-white .header__logo .logo {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header--over-white .header__logo::after {
+  display: block;
+}
+
+/* Градиент только в форме логотипа (mask), без прямоугольного фона */
+.header__logo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-gradient);
+  -webkit-mask: url(/logo.svg) center/contain no-repeat;
+  mask: url(/logo.svg) center/contain no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  pointer-events: none;
+}
+
+.logo {
+  width: var(--logo-width);
+  height: var(--logo-height);
+  object-fit: contain;
+  display: block;
+  position: relative;
+  z-index: 0;
+  transition: opacity var(--transition-base);
+}
+
+/* Кнопка-иконка в хедере: иконка 16×14 по макету, touch-зона не меньше 44×44 */
+.header__btn-icon.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.header__btn-icon .btn-icon__img {
+  width: var(--header-icon-width);
+  height: var(--header-icon-height);
+  transition: filter var(--transition-base), stroke var(--transition-base);
+}
+
+/* Над изображением: иконка белая */
+.header--over-image .header__btn-icon .btn-icon__img {
+  filter: brightness(0) invert(1);
+}
+
+.header--over-image .header__btn-icon .btn-icon__img path,
+.header--over-image .header__btn-icon .btn-icon__img [stroke] {
+  stroke: #fff !important;
+}
+
+/* Над белым: иконка с градиентом (#333 → #8f8f8f → #333) */
+.header--over-white .header__btn-icon .btn-icon__img {
+  filter: none;
+}
+
+.header--over-white .header__btn-icon .btn-icon__img path,
+.header--over-white .header__btn-icon .btn-icon__img [stroke] {
+  stroke: url(#accent-gradient) !important;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-icon__img {
+  width: 16px;
+  height: 14px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Иконка-кнопка — без фона, только иконка с Exclusion */
+a.btn-icon {
+  background: none !important;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  color: inherit;
+}
+
+.container {
+  max-width: 390px;
+}
+
+/* Hero — фотка прижата к самому верху экрана (под хедером), хедер поверх при скролле */
+.hero {
+  position: relative;
+  width: 100%;
+  max-width: var(--hero-width);
+  min-height: var(--hero-height);
+  margin: 0 auto;
+  margin-top: calc(-1 * var(--header-height));
+}
+
+.hero__visual {
+  width: 100%;
+  height: var(--hero-visual-height);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.hero__content {
+  width: 100%;
+  padding: 0 0 var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+/* Заголовок hero: top 312px, left 20px, 383×96; Onest 200 ExtraLight 38px, line-height 100%; настраиваемый отступ между строками */
+.hero__title {
+  position: absolute;
+  top: 317px;
+  left: 20px;
+  width: 383px;
+  min-height: 96px;
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 200;
+  font-style: normal;
+  font-size: 38px;
+  line-height: 100%;
+  letter-spacing: 0;
+  opacity: 1;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.hero__title-line {
+  display: block;
+}
+
+.hero__title-line+.hero__title-line {
+  margin-top: var(--hero-title-line-gap);
+}
+
+/* БРОВИ. — Onest 600 SemiBold */
+.hero__title--strong {
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* ОБУЧЕНИЕ. — Onest 600 SemiBold + градиент #333 → #8f8f8f → #333 */
+.hero__title--gradient {
+  font-weight: 600;
+  font-style: normal;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Текст hero: top 416px (первый в потоке, отступ от hero visual 58px), left 20px */
+.hero__text {
+  margin-top: calc(var(--hero-text-top) - var(--hero-visual-height));
+  margin-left: var(--hero-text-left);
+  width: var(--hero-text-width);
+  min-height: var(--hero-text-height);
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: #000000;
+  opacity: 0.6;
+  margin-bottom: 0;
+}
+
+/* Карточки hero: ровно top 520px (24px под текстом), left 20px и 201px */
+.hero__cards {
+  display: flex;
+  gap: var(--hero-cards-gap);
+  margin-top: calc(var(--hero-cards-top) - var(--hero-text-top) - var(--hero-text-height));
+  margin-left: var(--hero-cards-left);
+  width: calc(var(--hero-card-width) * 2 + var(--hero-cards-gap));
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.hero__card {
+  width: var(--hero-card-width);
+  height: var(--hero-card-height);
+  flex-shrink: 0;
+  border-radius: 20px;
+  display: block;
+  object-fit: cover;
+}
+
+/* Кнопка hero: ровно top 758px (32px под карточками) */
+.hero__btn {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.hero__btn:hover {
+  opacity: 0.9;
+}
+
+.hero__btn:focus {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.hero__btn-img {
+  width: 100%;
+  height: 55px;
+  max-width: 350px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+/* Секция для мастеров: начало 885px от верха, ширина 390, высота 844 вниз */
+.section-masters {
+  position: relative;
+  width: 100%;
+  max-width: var(--section-masters-width);
+  min-height: var(--section-masters-height);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(var(--section-masters-top) - var(--hero-section-end));
+  box-sizing: border-box;
+}
+
+/* Заголовок секции «Для мастеров»: top 60px, left 107px; 177×70; Onest 32px, 110%, center, uppercase */
+.masters__title {
+  position: absolute;
+  top: var(--masters-title-top);
+  left: var(--masters-title-left);
+  width: var(--masters-title-width);
+  min-height: var(--masters-title-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+.masters__title-line {
+  display: block;
+}
+
+/* «ДЛЯ» — Onest 200 ExtraLight */
+.masters__title-line--light {
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* «МАСТЕРОВ» — Onest 600 SemiBold + градиент #333 → #8f8f8f → #333 (как ОБУЧЕНИЕ) */
+.masters__title-line--medium {
+  font-weight: 600;
+  font-style: normal;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Текст в секции «Для мастеров»: top 138px, left 36px; 317×40; Onest 400, 14px, 140%, center, opacity 0.6 */
+.masters__text {
+  position: absolute;
+  top: var(--masters-text-top);
+  left: var(--masters-text-left);
+  width: var(--masters-text-width);
+  min-height: var(--masters-text-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #000000;
+  opacity: 0.6;
+  box-sizing: border-box;
+}
+
+/* Карточка в секции «Для мастеров»: top 449px, left 20px; 350×236, border-radius 20px */
+.masters__card {
+  position: absolute;
+  top: var(--masters-card-top);
+  left: var(--masters-card-left);
+  width: var(--masters-card-width);
+  height: var(--masters-card-height);
+  display: block;
+  border-radius: 20px;
+  opacity: 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Вторая карточка в секции «Для мастеров»: top 202px, left 20px; 349×236 */
+.masters__card--2 {
+  top: var(--masters-card2-top);
+  left: var(--masters-card2-left);
+  width: var(--masters-card2-width);
+  height: var(--masters-card2-height);
+}
+
+/* Кнопка «Для мастеров»: top 717px, left 20px относительно секции; 350×55, border-radius 20px */
+.masters__btn {
+  position: absolute;
+  top: var(--masters-btn-top);
+  left: var(--masters-btn-left);
+  width: var(--masters-btn-width);
+  height: var(--masters-btn-height);
+  display: block;
+  border-radius: 20px;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity var(--transition-fast);
+}
+
+.masters__btn:hover {
+  opacity: 0.9;
+}
+
+.masters__btn:focus {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.masters__btn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 20px;
+  pointer-events: none;
+}

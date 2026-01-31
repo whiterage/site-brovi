@@ -1,0 +1,129 @@
+/* CSS ПЕРЕМЕННЫЕ (TOKENS) — Mobile-first: значения по умолчанию для мобилки */
+
+:root {
+  /* Цвета */
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --color-accent: #ffc107;
+  --color-text: #212529;
+  --color-text-light: #6c757d;
+  --color-bg: #ffffff;
+  --color-bg-light: #f8f9fa;
+  --color-border: #dee2e6;
+  --color-error: #dc3545;
+  --color-success: #28a745;
+  --color-warning: #ffc107;
+
+  /* Акцент — перелив (текст, кнопки, лого) */
+  --accent-gradient: linear-gradient(88.74deg, #333333 2.61%, #8F8F8F 50.43%, #333333 98.25%);
+
+  /* Шрифты */
+  --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: var(--font-family-primary);
+  --font-onest: 'Onest', var(--font-family-primary);
+
+  /* Размеры шрифтов */
+  --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-size-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --font-size-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --font-size-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+  --font-size-xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);
+  --font-size-2xl: clamp(2rem, 1.7rem + 1.5vw, 3rem);
+  --font-size-3xl: clamp(2.5rem, 2rem + 2.5vw, 4rem);
+
+  /* Отступы (spacing scale) */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Breakpoints */
+  --breakpoint-mobile: 767px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1025px;
+
+  /* Тени */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+  /* Радиусы */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Переходы */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 300ms ease-in-out;
+  --transition-slow: 500ms ease-in-out;
+
+  /* Контейнеры (mobile-first: отступы для мобилки, планшет/десктоп переопределяют в tablet.css) */
+  --container-max-width: 1280px;
+  --container-padding: var(--spacing-sm);
+
+  /* Header UI группа (лого + кнопка) — по макету */
+  --header-ui-width: 349px;
+  --header-ui-height: 31px;
+  --header-top: 40px;
+  --header-ui-left: 21px;
+  --logo-width: 56px;
+  --logo-height: 31px;
+  --header-icon-width: 16px;
+  --header-icon-height: 14px;
+  /* Высота хедера целиком (для прижатия hero к верху) */
+  --header-height: calc(var(--header-top) + var(--header-ui-height) + var(--spacing-md));
+
+  /* Hero — по макету */
+  --hero-width: 390px;
+  --hero-height: 844px;
+  --hero-visual-height: 358px;
+  --hero-btn-top: 758px;
+  /* Карточки hero: top 520px, left 20px и 201px */
+  --hero-cards-top: 520px;
+  --hero-card-width: 169px;
+  --hero-card-height: 206px;
+  --hero-cards-left: 20px;
+  --hero-cards-gap: 12px;
+  /* Текст hero: top 416px, left 20px, 350×80 */
+  --hero-text-top: 416px;
+  --hero-text-left: 20px;
+  --hero-text-width: 350px;
+  --hero-text-height: 80px;
+  /* Заголовок hero: расстояние по высоте между «ЭСТЕТИКА. БРОВИ.» и «ОБУЧЕНИЕ.» */
+  --hero-title-line-gap: 0.25em;
+  /* Секция для мастеров: начало 885px, ширина 390, высота 844 */
+  --section-masters-top: 885px;
+  --section-masters-width: 390px;
+  --section-masters-height: 844px;
+  --hero-section-end: 813px;
+  /* Кнопка в секции «Для мастеров»: top 717px, left 20px относительно секции */
+  --masters-btn-top: 717px;
+  --masters-btn-left: 20px;
+  --masters-btn-width: 350px;
+  --masters-btn-height: 55px;
+  /* Карточка в секции «Для мастеров»: top 449px, left 20px; 350×236 */
+  --masters-card-top: 449px;
+  --masters-card-left: 20px;
+  --masters-card-width: 350px;
+  --masters-card-height: 236px;
+  /* Заголовок секции «Для мастеров»: top 60px, left 107px; 177×70 */
+  --masters-title-top: 60px;
+  --masters-title-left: 107px;
+  --masters-title-width: 177px;
+  --masters-title-height: 70px;
+  /* Текст в секции «Для мастеров»: top 138px, left 36px; 317×40 */
+  --masters-text-top: 138px;
+  --masters-text-left: 36px;
+  --masters-text-width: 317px;
+  --masters-text-height: 40px;
+  /* Вторая карточка: top 202px, left 20px; 349×236 */
+  --masters-card2-top: 202px;
+  --masters-card2-left: 20px;
+  --masters-card2-width: 349px;
+  --masters-card2-height: 236px;
+}
