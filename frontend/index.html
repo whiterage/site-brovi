@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/svg+xml" href="/logo.svg">
@@ -15,9 +16,9 @@
         <header class="header header--over-image" id="header">
             <div class="header__container container">
                 <div class="header__ui">
-                    <a href="/" class="header__logo">
-                        <img src="/logo.svg" alt="Логотип" class="logo">
-                    </a>
+                    <span class="header__logo" aria-hidden="true">
+                        <img src="/logo.svg" alt="" class="logo" width="56" height="31">
+                    </span>
                     <a href="/info" class="btn-icon header__btn-icon" aria-label="Подробнее">
                         <svg class="btn-icon__img" width="16" height="14" viewBox="0 0 24 16" fill="none"
                             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -63,8 +64,10 @@
                     <span class="masters__title-line masters__title-line--light">ДЛЯ</span>
                     <span class="masters__title-line masters__title-line--medium">МАСТЕРОВ</span>
                 </h2>
-                <p class="masters__text">Хотите делать такие же «воздушные» брови? Я записала уроки по своей авторской технике</p>
-                <img src="/cardForMasters2.svg" alt="" class="masters__card masters__card--2" width="349" height="236" loading="lazy">
+                <p class="masters__text">Хотите делать такие же «воздушные» брови? Я записала уроки по своей авторской
+                    технике</p>
+                <img src="/cardForMasters2.svg" alt="" class="masters__card masters__card--2" width="349" height="236"
+                    loading="lazy">
                 <img src="/cardForMasters.svg" alt="" class="masters__card" width="350" height="236" loading="lazy">
                 <a href="#" class="masters__btn" aria-label="Для мастеров">
                     <img src="/btnForMasters.svg" alt="" class="masters__btn-img" width="350" height="55"
@@ -72,25 +75,174 @@
                 </a>
             </section>
             <section class="section-alina">
+                <div class="alina__slider">
+                    <div class="alina__slides" id="alina-slides">
+                        <div class="alina__slide">
+                            <img src="/alina/1.svg" alt="" class="alina__visual" width="350" height="363"
+                                loading="lazy">
+                        </div>
+                        <div class="alina__slide">
+                            <img src="/alina/2.svg" alt="" class="alina__visual" width="350" height="363"
+                                loading="lazy">
+                        </div>
+                        <div class="alina__slide">
+                            <img src="/alina/3.svg" alt="" class="alina__visual" width="350" height="363"
+                                loading="lazy">
+                        </div>
+                        <div class="alina__slide">
+                            <img src="/alina/4.svg" alt="" class="alina__visual" width="350" height="363"
+                                loading="lazy">
+                        </div>
+                        <div class="alina__slide">
+                            <img src="/alina/5.svg" alt="" class="alina__visual" width="350" height="363"
+                                loading="lazy">
+                        </div>
+                        <div class="alina__slide">
+                            <img src="/alina/6.svg" alt="" class="alina__visual" width="350" height="363"
+                                loading="lazy">
+                        </div>
+                        <div class="alina__slide">
+                            <img src="/alina/7.svg" alt="" class="alina__visual" width="350" height="363"
+                                loading="lazy">
+                        </div>
+                        <div class="alina__slide">
+                            <img src="/alina/8.svg" alt="" class="alina__visual" width="350" height="363"
+                                loading="lazy">
+                        </div>
+                        <div class="alina__slide">
+                            <img src="/alina/9.svg" alt="" class="alina__visual" width="350" height="363"
+                                loading="lazy">
+                        </div>
+                    </div>
+                    <button type="button" class="alina__btn alina__btn--prev" id="alina-prev"
+                        aria-label="Предыдущее фото">
+                        <img src="/alina/VectorLeft.svg" alt="" class="alina__btn-icon" width="15" height="31">
+                    </button>
+                    <button type="button" class="alina__btn alina__btn--next" id="alina-next"
+                        aria-label="Следующее фото">
+                        <img src="/alina/VectorRight.svg" alt="" class="alina__btn-icon" width="15" height="31">
+                    </button>
+                </div>
                 <img src="/h1.svg" alt="" class="alina__decoration" width="424" height="98" loading="lazy">
                 <img src="/Frame%2012.svg" alt="" class="alina__img" width="158" height="161" loading="lazy">
                 <h2 class="alina__title">
-                    <span class="alina__title-line alina__title-line--light">ВАШ ЭКСПЕРТ</span>
-                    <span class="alina__title-line alina__title-line--gradient">АЛИНА БРОВИСТ</span>
+                    <span class="alina__title-line alina__title-line--light">МАСТЕР-ПРЕПОДАВАТЕЛЬ</span>
+                    <span class="alina__title-line alina__title-line--gradient">ПРИЙМАК АЛИНА</span>
                 </h2>
-                <p class="alina__text">«Перманентный макияж — это не просто процедура, это ответственность. Более 5 лет я создаю естественные образы, которые не нужно сводить лазером.»</p>
+                <p class="alina__text">«Перманентный макияж — это не просто процедура, это ответственность. Более 5 лет
+                    я создаю естественные образы, которые не нужно сводить лазером.»</p>
             </section>
-            <div class="container section">
-                <h1>Мобильная версия</h1>
-                <p>Базовая разметка готова под mobile-first. Сначала верстаем под мобилку, затем добавляем стили для
-                    планшета и десктопа через <code>min-width</code>.</p>
-            </div>
+            <section class="section-aesthetics">
+                <h2 class="aesthetics__title">
+                    <span class="aesthetics__title-line aesthetics__title-line--light">ЭСТЕТИКА</span>
+                    <span class="aesthetics__title-line aesthetics__title-line--medium">В ДЕТАЛЯХ</span>
+                </h2>
+                <img src="/aeth/1.svg" alt="" class="aesthetics__img aesthetics__img--1" width="169" height="170"
+                    loading="lazy">
+                <img src="/aeth/2.svg" alt="" class="aesthetics__img aesthetics__img--2" width="169" height="170"
+                    loading="lazy">
+                <img src="/aeth/3.svg" alt="" class="aesthetics__img aesthetics__img--3" width="350" height="158"
+                    loading="lazy">
+                <img src="/aeth/4.svg" alt="" class="aesthetics__img aesthetics__img--4" width="169" height="170"
+                    loading="lazy">
+                <img src="/aeth/5.svg" alt="" class="aesthetics__img aesthetics__img--5" width="169" height="170"
+                    loading="lazy">
+                <a href="#" class="aesthetics__btn" aria-label="Эстетика">
+                    <img src="/btnAESTH.svg" alt="" class="aesthetics__btn-img" width="350" height="55" loading="lazy">
+                </a>
+            </section>
+            <section class="section-pricelist">
+                <h2 class="pricelist__title">
+                    <span class="pricelist__title-line pricelist__title-line--light">ПРАЙС </span>
+                    <span class="pricelist__title-line pricelist__title-line--gradient">ЛИСТ</span>
+                </h2>
+                <span class="pricelist__label">БРОВИ</span>
+                <img src="/aeth/Group%201.svg" alt="" class="pricelist__group" width="164" height="42" loading="lazy">
+                <img src="/aeth/Line%208.svg" alt="" class="pricelist__line" width="1" height="216" loading="lazy">
+                <span class="pricelist__price">1200Р</span>
+                <span class="pricelist__price pricelist__price--2">2000Р</span>
+                <span class="pricelist__price pricelist__price--3">2300Р</span>
+                <span class="pricelist__price pricelist__price--4">2300Р</span>
+                <p class="pricelist__item">КОРРЕКЦИЯ И ОКРАШИВАНИЕ БРОВЕЙ</p>
+                <p class="pricelist__item pricelist__item--2">ДОЛГОВРЕМЕННАЯ УКЛАДКА И КОРРЕКЦИЯ БРОВЕЙ</p>
+                <p class="pricelist__item pricelist__item--3">ДОЛГОВРЕМЕННАЯ УКЛАДКА И КОРРЕКЦИЯ БРОВЕЙ+ОКРАШИВАНИЕ</p>
+                <img src="/aeth/Rectangle%202.svg" alt="" class="pricelist__rect pricelist__rect--2" width="169"
+                    height="174" loading="lazy">
+                <img src="/aeth/Rectangle%203.svg" alt="" class="pricelist__rect pricelist__rect--3" width="169"
+                    height="174" loading="lazy">
+                <img src="/aeth/Rectangle%204.svg" alt="" class="pricelist__rect pricelist__rect--4" width="350"
+                    height="212" loading="lazy">
+            </section>
+            <section class="section-pricelist2">
+                <h2 class="pricelist__title">
+                    <span class="pricelist__title-line pricelist__title-line--light">ПРАЙС </span>
+                    <span class="pricelist__title-line pricelist__title-line--gradient">ЛИСТ</span>
+                </h2>
+                <span class="pricelist2__label">РЕСНИЦЫ</span>
+                <p class="pricelist2__item">ЛАМИНИРОВАНИЕ И ОКРАШИВАНИЕ РЕСНИЦ</p>
+                <p class="pricelist2__item pricelist2__item--2">ОКРАШИВАНИЕ РЕСНИЦ ВАКСИНГ</p>
+                <p class="pricelist2__item pricelist2__item--3">УДАЛЕНИЕ НЕЖЕЛАТЕЛЬНЫХ ВОЛОСКОВ</p>
+                <img src="/price/Line%208.svg" alt="" class="pricelist2__line" width="1" height="152" loading="lazy">
+                <span class="pricelist2__price">2500Р</span>
+                <span class="pricelist2__price pricelist2__price--2">500Р</span>
+                <span class="pricelist2__price pricelist2__price--3">300Р</span>
+                <img src="/price/Rectangle%202.svg" alt="" class="pricelist2__rect pricelist2__rect--1" width="169" height="174" loading="lazy">
+                <img src="/price/Rectangle%203.svg" alt="" class="pricelist2__rect pricelist2__rect--2" width="169" height="174" loading="lazy">
+                <img src="/price/Rectangle%204.svg" alt="" class="pricelist2__rect pricelist2__rect--3" width="350" height="212" loading="lazy">
+            </section>
+            <section class="section-permanent">
+                <h2 class="pricelist__title">
+                    <span class="pricelist__title-line pricelist__title-line--light">ПРАЙС </span>
+                    <span class="pricelist__title-line pricelist__title-line--gradient">ЛИСТ</span>
+                </h2>
+                <span class="permanent__label">ПЕРМАНЕНТНЫЙ МАКИЯЖ</span>
+                <img src="/mac/Group%202.svg" alt="" class="permanent__group permanent__group--2" width="260" height="42" loading="lazy">
+                <img src="/mac/Group%203.svg" alt="" class="permanent__group permanent__group--3" width="123" height="42" loading="lazy">
+                <img src="/mac/Group%204.svg" alt="" class="permanent__group permanent__group--4" width="238" height="42" loading="lazy">
+                <img src="/mac/Line%208.svg" alt="" class="permanent__line" width="1" height="152" loading="lazy">
+                <span class="permanent__price">9000Р</span>
+                <span class="permanent__price permanent__price--2">5500Р</span>
+                <span class="permanent__price permanent__price--3">7000Р</span>
+                <img src="/mac/Rectangle%202.svg" alt="" class="permanent__rect permanent__rect--1" width="169" height="174" loading="lazy">
+                <img src="/mac/Rectangle%203%20(2).svg" alt="" class="permanent__rect permanent__rect--2" width="169" height="174" loading="lazy">
+                <img src="/mac/Rectangle%205.svg" alt="" class="permanent__rect permanent__rect--3" width="350" height="212" loading="lazy">
+            </section>
+            <section class="section-feedback">
+                <h2 class="feedback__title">
+                    <span class="feedback__title-line feedback__title-line--light">ОБРАТНАЯ </span>
+                    <span class="feedback__title-line feedback__title-line--gradient">СВЯЗЬ</span>
+                </h2>
+                <p class="feedback__subtitle">Искренние слова и эмоции сразу после процедуры</p>
+                <div class="feedback__reviews" id="feedback-reviews">
+                    <div class="feedback__reviews-track" id="feedback-reviews-track">
+                        <div class="feedback__reviews-slide">
+                            <img src="/social/IMG_6612%201.svg" alt="Отзыв" class="feedback__reviews-slide-img--350x150" width="350" height="150" loading="lazy">
+                        </div>
+                        <div class="feedback__reviews-slide">
+                            <img src="/social/IMG_6613%201.svg" alt="Отзыв" class="feedback__reviews-slide-img--350x150" width="350" height="150" loading="lazy">
+                        </div>
+                        <div class="feedback__reviews-slide">
+                            <img src="/social/IMG_6614%201.svg" alt="Отзыв" class="feedback__reviews-slide-img--350x150" width="350" height="150" loading="lazy">
+                        </div>
+                        <div class="feedback__reviews-slide">
+                            <img src="/social/IMG_6615%201.svg" alt="Отзыв" class="feedback__reviews-slide-img--350x150" width="350" height="150" loading="lazy">
+                        </div>
+                        <div class="feedback__reviews-slide feedback__reviews-slide--current">
+                            <img src="/social/IMG_6619%201.svg" alt="Отзыв" class="feedback__reviews-slide-img--350x150" width="350" height="150">
+                        </div>
+                    </div>
+                    <div class="feedback__reviews-fade" aria-hidden="true"></div>
+                </div>
+                <h2 class="feedback__contacts">КОНТАКТЫ</h2>
+                <p class="feedback__tagline">До встречи на преображении</p>
+                <a href="https://t.me/alina_p21" class="feedback__btn feedback__btn--1" aria-label="Telegram" target="_blank" rel="noopener noreferrer"><img src="/buttons/Frame%2019.svg" alt="" width="79" height="70" loading="lazy"></a>
+                <a href="https://wa.me/79189300517" class="feedback__btn feedback__btn--2" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><img src="/buttons/Rectangle%201.svg" alt="" width="78" height="70" loading="lazy"></a>
+                <a href="https://www.instagram.com/alinapriymak_?igsh=MTYxeWdwNXpwNDByZQ==" class="feedback__btn feedback__btn--3" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><img src="/buttons/Frame%2020.svg" alt="" width="79" height="70" loading="lazy"></a>
+                <a href="https://n975691.yclients.com/" class="feedback__btn feedback__btn--4" aria-label="Запись на приём" target="_blank" rel="noopener noreferrer"><img src="/buttons/Frame%2021.svg" alt="" width="78" height="70" loading="lazy"></a>
+                <p class="feedback__phone">Номер: <a href="tel:+79189300517">+7 918 930 05 17</a></p>
+                <p class="feedback__address">Адрес: <a href="https://yandex.ru/maps/?text=%D0%B3.+%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B4%D0%B0%D1%80%2C+%D1%83%D0%BB.+%D0%9E%D1%80%D0%B4%D0%B6%D0%BE%D0%BD%D0%B8%D0%BA%D0%B8%D0%B4%D0%B7%D0%B5+2" target="_blank" rel="noopener noreferrer">г. Краснодар, ул. Орджоникидзе 2</a></p>
+            </section>
         </main>
-        <footer class="footer">
-            <div class="footer__container container">
-                <p>© 2025</p>
-            </div>
-        </footer>
     </div>
     <script type="module" src="/src/main.js"></script>
 </body>

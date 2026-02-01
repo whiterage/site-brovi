@@ -1,14 +1,20 @@
 /* LAYOUT — Mobile-first: база = мобильный (одна колонка, блоки друг под другом) */
 
-/* Header — группа UI поверх контента, без фона (просвечивает hero) */
+/* Header — фиксирован сверху, не уезжает при скролле; по центру как #app (390px) */
 .header {
   background: transparent;
   border-bottom: none;
   padding-top: var(--header-top);
   padding-bottom: var(--spacing-md);
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 390px;
+  box-sizing: border-box;
+  z-index: 200;
+  isolation: isolate;
 }
 
 .header__container {

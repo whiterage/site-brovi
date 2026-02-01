@@ -16,6 +16,8 @@
 
   /* Акцент — перелив (текст, кнопки, лого) */
   --accent-gradient: linear-gradient(88.74deg, #333333 2.61%, #8F8F8F 50.43%, #333333 98.25%);
+  /* Градиент для «ЛИСТ» в ПРАЙС ЛИСТ: мягкий блик на первых двух буквах (ЛИ) */
+  --accent-gradient-pricelist: linear-gradient(90deg, #5C5C5C 0%, #5C5C5C 30%, #333333 65%, #333333 100%);
 
   /* Шрифты */
   --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -106,21 +108,293 @@
   --section-alina-top: 1729px;
   --section-alina-width: 390px;
   --section-alina-height: 844px;
+  --section-alina-end: 2573px;
+  /* Секция «ЭСТЕТИКА В ДЕТАЛЯХ»: top 2573px, ширина 390, высота 844 */
+  --section-aesthetics-top: 2573px;
+  --section-aesthetics-width: 390px;
+  --section-aesthetics-height: 844px;
+  --section-aesthetics-end: 3417px;
+  /* Секция Pricelist (прайс-лист): top 3417px, ширина 390, высота 844 */
+  --section-pricelist-top: 3417px;
+  --section-pricelist-width: 390px;
+  --section-pricelist-height: 844px;
+  --section-pricelist-end: 4261px;
+  /* Секция Pricelist2: top 4261px, ширина 390, высота 844 */
+  --section-pricelist2-top: 4261px;
+  --section-pricelist2-width: 390px;
+  --section-pricelist2-height: 844px;
+  --section-pricelist2-end: 5105px;
+  /* Секция «Перманентный макияж»: top 5105px, ширина 390, высота 844 */
+  --section-permanent-top: 5105px;
+  --section-permanent-width: 390px;
+  --section-permanent-height: 844px;
+  --section-permanent-end: 5949px;
+  /* Секция «Обратная связь»: top 5949px, ширина 390, высота 800 */
+  --section-feedback-top: 5949px;
+  --section-feedback-width: 390px;
+  --section-feedback-height: 800px;
+  --section-feedback-end: 6749px;
+  /* Заголовок «ОБРАТНАЯ СВЯЗЬ» в секции feedback: top 60px, left 53px; 284×35; Onest 32px, 110%, center */
+  --feedback-title-top: 60px;
+  --feedback-title-left: 53px;
+  --feedback-title-width: 284px;
+  --feedback-title-height: 35px;
+  /* Адрес в секции feedback: top 740px, left 54px; 282×20; Onest 400, 14px, center, #000000, opacity 0.6 */
+  --feedback-address-top: 740px;
+  --feedback-address-left: 54px;
+  --feedback-address-width: 282px;
+  --feedback-address-height: 20px;
+  /* Номер телефона в секции feedback: top 712px, left 114px; 161×20; Onest 400, 14px, center, opacity 0.6 */
+  --feedback-phone-top: 712px;
+  --feedback-phone-left: 114px;
+  --feedback-phone-width: 161px;
+  --feedback-phone-height: 20px;
+  /* Заголовок «КОНТАКТЫ» в секции feedback: top 532px, left 17px; 357×70; Onest 700, 64px, uppercase, center, #E6E6E6 */
+  --feedback-contacts-top: 532px;
+  --feedback-contacts-left: 17px;
+  --feedback-contacts-width: 357px;
+  --feedback-contacts-height: 70px;
+  /* Текст «До встречи на преображении» в секции feedback: top 480px, left 111px; 169×44; Onest 500, 20px, uppercase, center, #4E4E4E */
+  --feedback-tagline-top: 480px;
+  --feedback-tagline-left: 111px;
+  --feedback-tagline-width: 169px;
+  --feedback-tagline-height: 44px;
+  /* Текст «Искренние слова и эмоции сразу после процедуры» в секции feedback: top 103px, left 81px; 228×40; Onest 400, 14px, center, #000000, opacity 0.6 */
+  --feedback-subtitle-top: 103px;
+  --feedback-subtitle-left: 81px;
+  --feedback-subtitle-width: 228px;
+  --feedback-subtitle-height: 40px;
+  /* Окно отзывов в секции feedback: 352×237, top 167px, left 19px; слайд 197px — в окне видны края соседних */
+  --feedback-reviews-top: 167px;
+  --feedback-reviews-left: 19px;
+  --feedback-reviews-width: 352px;
+  --feedback-reviews-height: 237px;
+  --feedback-reviews-slide-height: 150px;
+  --feedback-reviews-peek: 43.5px; /* (237 - 150) / 2 — верх/низ, чтобы слайд по центру и видны края соседних */
+  /* Кнопки в секции feedback: top 618px; 79×70, 78×70, 79×70, 78×70; left 20, 111, 201, 292px; border-radius 24px */
+  --feedback-btn-top: 618px;
+  --feedback-btn1-left: 20px;
+  --feedback-btn1-width: 79px;
+  --feedback-btn1-height: 70px;
+  --feedback-btn2-left: 111px;
+  --feedback-btn2-width: 78px;
+  --feedback-btn2-height: 70px;
+  --feedback-btn3-left: 201px;
+  --feedback-btn3-width: 79px;
+  --feedback-btn3-height: 70px;
+  --feedback-btn4-left: 292px;
+  --feedback-btn4-width: 78px;
+  --feedback-btn4-height: 70px;
+  /* Подпись «ПЕРМАНЕНТНЫЙ МАКИЯЖ» в секции permanent: top 111px, left 63px; 263×22; Onest 400, 20px, uppercase, #4E4E4E */
+  --permanent-label-top: 111px;
+  --permanent-label-left: 63px;
+  --permanent-label-width: 263px;
+  --permanent-label-height: 22px;
+  /* mac/Group 2, 3, 4 в секции permanent: top 165/217/269px, left 20px; 260×42, 123×42, 238×42 */
+  --permanent-group-top: 165px;
+  --permanent-group-left: 20px;
+  --permanent-group2-width: 260px;
+  --permanent-group2-height: 42px;
+  --permanent-group3-top: 217px;
+  --permanent-group3-width: 123px;
+  --permanent-group3-height: 42px;
+  --permanent-group4-top: 269px;
+  --permanent-group4-width: 238px;
+  --permanent-group4-height: 42px;
+  /* mac/Line 8.svg в секции permanent: top 165px, left 292px; вертикальная линия 1×152px */
+  --permanent-line-top: 165px;
+  --permanent-line-left: 292px;
+  --permanent-line-width: 1px;
+  --permanent-line-height: 152px;
+  /* Цены в секции permanent: 9000Р, 5500Р, 7000Р; Onest 300, 16px, #4E4E4E */
+  --permanent-price-top: 177px;
+  --permanent-price-left: 318px;
+  --permanent-price-width: 52px;
+  --permanent-price-height: 18px;
+  --permanent-price2-top: 229px;
+  --permanent-price2-left: 319px;
+  --permanent-price2-width: 51px;
+  --permanent-price2-height: 18px;
+  --permanent-price3-top: 281px;
+  --permanent-price3-left: 320px;
+  --permanent-price3-width: 50px;
+  --permanent-price3-height: 18px;
+  /* mac/Rectangle 2, Rectangle 3 (2) в секции permanent: top 335px; left 20px и 201px; 169×174; border-radius 20px */
+  --permanent-rect-top: 335px;
+  --permanent-rect-width: 169px;
+  --permanent-rect-height: 174px;
+  --permanent-rect1-left: 20px;
+  --permanent-rect2-left: 201px;
+  /* mac/Rectangle 5 в секции permanent: top 525px, left 20px; 350×212; border-radius 20px */
+  --permanent-rect3-top: 525px;
+  --permanent-rect3-left: 20px;
+  --permanent-rect3-width: 350px;
+  --permanent-rect3-height: 212px;
+  /* price/Rectangle 2, 3 в секции pricelist2: top 329px; left 20px и 201px; 169×174; border-radius 20px */
+  --pricelist2-rect-top: 329px;
+  --pricelist2-rect-width: 169px;
+  --pricelist2-rect-height: 174px;
+  --pricelist2-rect1-left: 20px;
+  --pricelist2-rect2-left: 201px;
+  /* price/Rectangle 4 в секции pricelist2: top 519px, left 20px; 350×212; border-radius 20px */
+  --pricelist2-rect4-top: 519px;
+  --pricelist2-rect4-left: 20px;
+  --pricelist2-rect4-width: 350px;
+  --pricelist2-rect4-height: 212px;
+  /* Подпись «РЕСНИЦЫ» в секции pricelist2: top 111px, left 145px; 100×22; Onest 400, 20px, uppercase, #5C5C5C */
+  --pricelist2-label-top: 111px;
+  --pricelist2-label-left: 145px;
+  --pricelist2-label-width: 100px;
+  --pricelist2-label-height: 22px;
+  /* Текст «ЛАМИНИРОВАНИЕ И ОКРАШИВАНИЕ РЕСНИЦ» в секции pricelist2: top 165px, left 20px; 194×36; Onest 300, 16px, #4E4E4E */
+  --pricelist2-item-top: 165px;
+  --pricelist2-item-left: 20px;
+  --pricelist2-item-width: 194px;
+  --pricelist2-item-height: 36px;
+  /* Текст «ОКРАШИВАНИЕ РЕСНИЦ ВАКСИНГ» в секции pricelist2: top 217px, left 20px; 202×36; #4E4E4E */
+  --pricelist2-item2-top: 217px;
+  --pricelist2-item2-left: 20px;
+  --pricelist2-item2-width: 202px;
+  --pricelist2-item2-height: 36px;
+  /* Текст «УДАЛЕНИЕ НЕЖЕЛАТЕЛЬНЫХ ВОЛОСКОВ» в секции pricelist2: top 269px, left 20px; 238×36; Onest 300, 16px, #4E4E4E */
+  --pricelist2-item3-top: 269px;
+  --pricelist2-item3-left: 20px;
+  --pricelist2-item3-width: 238px;
+  --pricelist2-item3-height: 36px;
+  /* price/Line 8.svg в секции pricelist2: top 165px, left 292px; вертикальная линия 1×152px, angle -90°, opacity 0.4 */
+  --pricelist2-line-top: 165px;
+  --pricelist2-line-left: 292px;
+  --pricelist2-line-width: 1px;
+  --pricelist2-line-height: 152px;
+  /* Цены в секции pricelist2: 2500Р, 500Р, 300Р; Onest 300, 16px, #4E4E4E */
+  --pricelist2-price-top: 174px;
+  --pricelist2-price-left: 319px;
+  --pricelist2-price-width: 51px;
+  --pricelist2-price-height: 18px;
+  --pricelist2-price2-top: 226px;
+  --pricelist2-price2-left: 328px;
+  --pricelist2-price2-width: 42px;
+  --pricelist2-price2-height: 18px;
+  --pricelist2-price3-top: 278px;
+  --pricelist2-price3-left: 329px;
+  --pricelist2-price3-width: 41px;
+  --pricelist2-price3-height: 18px;
+  /* Заголовок секции «ПРАЙС ЛИСТ»: top 60px, left 92px; 206×35 */
+  --pricelist-title-top: 60px;
+  --pricelist-title-left: 92px;
+  --pricelist-title-width: 206px;
+  --pricelist-title-height: 35px;
+  /* Подпись «БРОВИ» в секции прайс-лист: top 111px, left 160px; 69×22; Onest 400, 20px, uppercase, #4E4E4E */
+  --pricelist-label-top: 111px;
+  --pricelist-label-left: 160px;
+  --pricelist-label-width: 69px;
+  --pricelist-label-height: 22px;
+  /* aeth/Group 1.svg в секции прайс-лист: top 165px, left 20px; 164×42 */
+  --pricelist-group-top: 165px;
+  --pricelist-group-left: 20px;
+  --pricelist-group-width: 164px;
+  --pricelist-group-height: 42px;
+  /* aeth/Line 8.svg в секции прайс-лист: top 165px, left 292px; вертикальная линия 216×1px, opacity 0.4 */
+  --pricelist-line-top: 165px;
+  --pricelist-line-left: 292px;
+  --pricelist-line-width: 1px;
+  --pricelist-line-height: 216px;
+  /* Цена «1200Р» в секции прайс-лист: top 177px, left 324px; 46×18; Onest 300, 16px, text-align justify */
+  --pricelist-price-top: 177px;
+  --pricelist-price-left: 324px;
+  --pricelist-price-width: 46px;
+  --pricelist-price-height: 18px;
+  /* Цена «2000Р» в секции прайс-лист: top 232px, left 319px; 51×18; Onest 300, 16px */
+  --pricelist-price2-top: 232px;
+  --pricelist-price2-left: 319px;
+  --pricelist-price2-width: 51px;
+  --pricelist-price2-height: 18px;
+  /* Цена «2300Р» в секции прайс-лист: top 284px, left 320px; 50×18; Onest 300, 16px */
+  --pricelist-price3-top: 284px;
+  --pricelist-price3-left: 320px;
+  --pricelist-price3-width: 50px;
+  --pricelist-price3-height: 18px;
+  /* Цена «2300Р» (4-й пункт): top 345px, left 320px; 50×18; Onest 300, 16px */
+  --pricelist-price4-top: 345px;
+  --pricelist-price4-left: 320px;
+  --pricelist-price4-width: 50px;
+  --pricelist-price4-height: 18px;
+  /* Текст «КОРРЕКЦИЯ И ОКРАШИВАНИЕ БРОВЕЙ» в секции прайс-лист: top 223px, left 20px; 194×36; Onest 300, 16px, #4E4E4E */
+  --pricelist-item-top: 223px;
+  --pricelist-item-left: 20px;
+  --pricelist-item-width: 194px;
+  --pricelist-item-height: 36px;
+  /* Текст «ДОЛГОВРЕМЕННАЯ УКЛАДКА И КОРРЕКЦИЯ БРОВЕЙ»: top 275px, left 20px; 233×36; Onest 300, 16px */
+  --pricelist-item2-top: 275px;
+  --pricelist-item2-width: 233px;
+  --pricelist-item2-height: 36px;
+  /* Текст «ДОЛГОВРЕМЕННАЯ УКЛАДКА И КОРРЕКЦИЯ БРОВЕЙ+ОКРАШИВАНИЕ»: top 327px, left 20px; 238×54; Onest 300, 16px */
+  --pricelist-item3-top: 327px;
+  --pricelist-item3-width: 238px;
+  --pricelist-item3-height: 54px;
+  /* aeth/Rectangle 2.svg в секции прайс-лист: top 405px, left 20px; 169×174; border-radius 20px */
+  --pricelist-rect2-top: 405px;
+  --pricelist-rect2-left: 20px;
+  --pricelist-rect2-width: 169px;
+  --pricelist-rect2-height: 174px;
+  /* aeth/Rectangle 3.svg в секции прайс-лист: top 405px, left 201px; 169×174; border-radius 20px */
+  --pricelist-rect3-top: 405px;
+  --pricelist-rect3-left: 201px;
+  --pricelist-rect3-width: 169px;
+  --pricelist-rect3-height: 174px;
+  /* aeth/Rectangle 4.svg в секции прайс-лист: top 595px, left 20px; 350×212; border-radius 20px */
+  --pricelist-rect4-top: 595px;
+  --pricelist-rect4-left: 20px;
+  --pricelist-rect4-width: 350px;
+  --pricelist-rect4-height: 212px;
+  /* Заголовок секции «ЭСТЕТИКА В ДЕТАЛЯХ»: top 60px, left 103px; 185×70 */
+  --aesthetics-title-top: 60px;
+  --aesthetics-title-left: 103px;
+  --aesthetics-title-width: 185px;
+  --aesthetics-title-height: 70px;
+  /* Картинки aeth/1.svg и aeth/2.svg в секции «ЭСТЕТИКА В ДЕТАЛЯХ»: 169×170, top 162px; левая left 20px, правая left 201px; border-radius 20px */
+  --aesthetics-img-width: 169px;
+  --aesthetics-img-height: 170px;
+  --aesthetics-img-top: 162px;
+  --aesthetics-img1-left: 20px;
+  --aesthetics-img2-left: 201px;
+  /* aeth/3.svg: 350×158, top 344px, left 20px; aeth/4.svg и aeth/5.svg: 169×170, top 514px, left 20px и 201px */
+  --aesthetics-img3-width: 350px;
+  --aesthetics-img3-height: 158px;
+  --aesthetics-img3-top: 344px;
+  --aesthetics-img3-left: 20px;
+  --aesthetics-img-row2-top: 514px;
+  /* Кнопка в секции «ЭСТЕТИКА В ДЕТАЛЯХ»: top 757px, left 20px; 350×55, border-radius 20px */
+  --aesthetics-btn-top: 757px;
+  --aesthetics-btn-left: 20px;
+  --aesthetics-btn-width: 350px;
+  --aesthetics-btn-height: 55px;
+  /* Изображение alina/1.svg в секции Alina: top 465px, left 20px; 350×363 */
+  --alina-visual-top: 465px;
+  --alina-visual-left: 20px;
+  --alina-visual-width: 350px;
+  --alina-visual-height: 363px;
+  /* Кнопки слайдера Alina: top 167px; левая left 16px, правая left 318.5px; иконка 15×31 */
+  --alina-btn-top: 167px;
+  --alina-btn-prev-left: 16px;
+  --alina-btn-next-left: 318.5px;
+  --alina-btn-icon-width: 15px;
+  --alina-btn-icon-height: 31px;
   /* Декоративный текст ALINA в секции Alina: top 54px, left -17px; 424×98; цвет #E6E6E6 */
   --alina-decoration-top: 54px;
   --alina-decoration-left: 5px;
   --alina-decoration-width: 424px;
   --alina-decoration-height: 98px;
   /* Изображение в секции Alina: top 98px, left 116px; 158×161 */
-  --alina-img-top: 98px;
+  --alina-img-top: 63px;
   --alina-img-left: 116px;
   --alina-img-width: 158px;
   --alina-img-height: 161px;
-  /* Заголовок секции Alina: top 275px, left 55px; 281×70 */
-  --alina-title-top: 275px;
-  --alina-title-left: 55px;
-  --alina-title-width: 281px;
-  --alina-title-height: 70px;
+  /* Заголовок секции Alina: top 248px, left 55px; ширина с запасом под «ПРИЙМАК АЛИНА» в одну строку */
+  --alina-title-top: 248px;
+  --alina-title-left: 50px;
+  --alina-title-width: 290px;
+  --alina-title-height: 105px;
   /* Текст в секции Alina: top 369px, left 39px; 312×80 */
   --alina-text-top: 369px;
   --alina-text-left: 39px;

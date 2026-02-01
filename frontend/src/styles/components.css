@@ -96,50 +96,26 @@
   resize: vertical;
 }
 
-/* Логотип — без фона; над фото = белый, над белым = перелив #333 → #8f8f8f → #333 */
+/* Логотип — статичный, не кнопка; над фото = белый, над белым = простой тёмно-серый */
 .header__logo {
   position: relative;
   display: inline-block;
   width: var(--logo-width);
   height: var(--logo-height);
   flex-shrink: 0;
-  background: none !important;
-  -webkit-background-clip: unset;
-  background-clip: unset;
-  color: inherit;
+  pointer-events: none;
 }
 
-/* Над изображением: лого белый (картинка + filter) */
+/* Над изображением: лого белый */
 .header--over-image .header__logo .logo {
   filter: brightness(0) invert(1);
   opacity: 1;
 }
 
-.header--over-image .header__logo::after {
-  display: none;
-}
-
-/* Над белым: перелив в форме лого (#333 → #8f8f8f → #333) */
+/* Над белым: лого один тон — серый чуть светлее чёрного */
 .header--over-white .header__logo .logo {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.header--over-white .header__logo::after {
-  display: block;
-}
-
-/* Градиент только в форме логотипа (mask), без прямоугольного фона */
-.header__logo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: var(--accent-gradient);
-  -webkit-mask: url(/logo.svg) center/contain no-repeat;
-  mask: url(/logo.svg) center/contain no-repeat;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  pointer-events: none;
+  filter: brightness(0) saturate(100%);
+  opacity: 0.6;
 }
 
 .logo {
@@ -179,14 +155,15 @@
   stroke: #fff !important;
 }
 
-/* Над белым: иконка с градиентом (#333 → #8f8f8f → #333) */
+/* Над белым: кнопка — простой тёмно-серый, без вычурного градиента */
 .header--over-white .header__btn-icon .btn-icon__img {
   filter: none;
+  opacity: 1;
 }
 
 .header--over-white .header__btn-icon .btn-icon__img path,
 .header--over-white .header__btn-icon .btn-icon__img [stroke] {
-  stroke: url(#accent-gradient) !important;
+  stroke: #4a4a4a !important;
 }
 
 .btn-icon {
@@ -504,7 +481,1000 @@ a.btn-icon {
   margin-top: calc(var(--section-alina-top) - var(--section-masters-end));
   box-sizing: border-box;
   opacity: 1;
+  overflow-x: hidden;
+}
+
+/* Секция «ЭСТЕТИКА В ДЕТАЛЯХ»: top 2573px, ширина 390, высота 844 */
+.section-aesthetics {
+  position: relative;
+  width: 100%;
+  max-width: var(--section-aesthetics-width);
+  min-height: var(--section-aesthetics-height);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(var(--section-aesthetics-top) - var(--section-alina-end));
+  box-sizing: border-box;
+  opacity: 1;
+  overflow-x: hidden;
+}
+
+/* Секция Pricelist (прайс-лист): top 3417px, ширина 390, высота 844 */
+.section-pricelist {
+  position: relative;
+  width: 100%;
+  max-width: var(--section-pricelist-width);
+  min-height: var(--section-pricelist-height);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(var(--section-pricelist-top) - var(--section-aesthetics-end));
+  box-sizing: border-box;
+  opacity: 1;
+  overflow-x: hidden;
+}
+
+/* Секция Pricelist2: top 4261px, ширина 390, высота 844 */
+.section-pricelist2 {
+  position: relative;
+  width: 100%;
+  max-width: var(--section-pricelist2-width);
+  min-height: var(--section-pricelist2-height);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(var(--section-pricelist2-top) - var(--section-pricelist-end));
+  box-sizing: border-box;
+  opacity: 1;
+  overflow-x: hidden;
+}
+
+/* Секция «Перманентный макияж»: top 5105px, ширина 390, высота 844 */
+.section-permanent {
+  position: relative;
+  width: 100%;
+  max-width: var(--section-permanent-width);
+  min-height: var(--section-permanent-height);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(var(--section-permanent-top) - var(--section-pricelist2-end));
+  box-sizing: border-box;
+  opacity: 1;
+  overflow-x: hidden;
+}
+
+/* Секция «Обратная связь»: top 5949px, ширина 390, высота 800 */
+.section-feedback {
+  position: relative;
+  width: 100%;
+  max-width: var(--section-feedback-width);
+  min-height: var(--section-feedback-height);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: calc(var(--section-feedback-top) - var(--section-permanent-end));
+  box-sizing: border-box;
+  opacity: 1;
+  overflow-x: hidden;
+}
+
+/* Заголовок «ОБРАТНАЯ СВЯЗЬ» в секции feedback: 284×35, top 60px, left 53px; как ПРАЙС ЛИСТ — в одну строку, градиент на СВЯЗЬ */
+.feedback__title {
+  position: absolute;
+  top: var(--feedback-title-top);
+  left: var(--feedback-title-left);
+  width: var(--feedback-title-width);
+  min-height: var(--feedback-title-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+.feedback__title-line {
+  display: inline;
+}
+
+/* «ОБРАТНАЯ » — Onest 200 ExtraLight */
+.feedback__title-line--light {
+  font-weight: 200;
+  font-style: normal;
+  color: var(--color-text);
+}
+
+/* «СВЯЗЬ» — Onest 600 SemiBold + градиент как у ЛИСТ (блик на первых буквах) */
+.feedback__title-line--gradient {
+  font-weight: 600;
+  font-style: normal;
+  background: var(--accent-gradient-pricelist);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Текст «Искренние слова и эмоции сразу после процедуры» в секции feedback: 228×40, top 103px, left 81px; Onest 400, 14px, center, #000000, opacity 0.6 */
+.feedback__subtitle {
+  position: absolute;
+  top: var(--feedback-subtitle-top);
+  left: var(--feedback-subtitle-left);
+  width: var(--feedback-subtitle-width);
+  min-height: var(--feedback-subtitle-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #000000;
+  opacity: 0.6;
+  box-sizing: border-box;
+}
+
+/* Окно отзывов в секции feedback: 352×237, прямоугольная зона без скруглений */
+.feedback__reviews {
+  position: absolute;
+  top: var(--feedback-reviews-top);
+  left: var(--feedback-reviews-left);
+  width: var(--feedback-reviews-width);
+  height: var(--feedback-reviews-height);
+  border-radius: 0;
+  overflow: hidden;
+  opacity: 1;
+  box-sizing: border-box;
+  touch-action: pan-y;
+}
+
+.feedback__reviews-track {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  min-height: 100%;
+  padding-top: var(--feedback-reviews-peek);
+  padding-bottom: var(--feedback-reviews-peek);
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.feedback__reviews-track.feedback__reviews-track--dragging {
+  transition: none;
+}
+
+.feedback__reviews-track.feedback__reviews-track--jump {
+  transition: none;
+}
+
+.feedback__reviews-slide {
+  flex: 0 0 var(--feedback-reviews-slide-height);
+  width: 100%;
+  height: var(--feedback-reviews-slide-height);
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: visible;
+  box-sizing: border-box;
+}
+
+/* Основное изображение отзывов: 350×150, border-radius 20px, border 1px; contain — не режем */
+.feedback__reviews-slide img {
+  width: 350px;
+  height: 150px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.feedback__reviews-slide-img--350x150 {
+  width: 350px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Размытие снизу — нижняя часть окна (край следующего слайда) всегда размыта при скролле */
+.feedback__reviews-fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(var(--feedback-reviews-peek) + 24px);
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.92), transparent);
+}
+
+/* Заголовок «КОНТАКТЫ» в секции feedback: 357×70, top 532px, left 17px; Onest 700 Bold, 64px, uppercase, center, #E6E6E6 */
+.feedback__contacts {
+  position: absolute;
+  top: var(--feedback-contacts-top);
+  left: var(--feedback-contacts-left);
+  width: var(--feedback-contacts-width);
+  min-height: var(--feedback-contacts-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 64px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #E6E6E6;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+/* Текст «До встречи на преображении» в секции feedback: 169×44, top 480px, left 111px; Onest 500, 20px, uppercase, center, #4E4E4E */
+.feedback__tagline {
+  position: absolute;
+  top: var(--feedback-tagline-top);
+  left: var(--feedback-tagline-left);
+  width: var(--feedback-tagline-width);
+  min-height: var(--feedback-tagline-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #4E4E4E;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+/* Кнопки в секции feedback: top 618px; Frame 19, Rectangle 1, Frame 20, Frame 21; border-radius 24px */
+.feedback__btn {
+  position: absolute;
+  top: var(--feedback-btn-top);
+  display: block;
+  border-radius: 24px;
+  overflow: hidden;
+  opacity: 1;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.feedback__btn img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.feedback__btn--1 {
+  left: var(--feedback-btn1-left);
+  width: var(--feedback-btn1-width);
+  height: var(--feedback-btn1-height);
+}
+
+.feedback__btn--2 {
+  left: var(--feedback-btn2-left);
+  width: var(--feedback-btn2-width);
+  height: var(--feedback-btn2-height);
+}
+
+.feedback__btn--3 {
+  left: var(--feedback-btn3-left);
+  width: var(--feedback-btn3-width);
+  height: var(--feedback-btn3-height);
+}
+
+.feedback__btn--4 {
+  left: var(--feedback-btn4-left);
+  width: var(--feedback-btn4-width);
+  height: var(--feedback-btn4-height);
+}
+
+/* Номер телефона в секции feedback: 161×20, top 712px, left 114px; Onest 400, 14px, center, #000000, opacity 0.6 */
+.feedback__phone {
+  position: absolute;
+  top: var(--feedback-phone-top);
+  left: var(--feedback-phone-left);
+  width: var(--feedback-phone-width);
+  min-height: var(--feedback-phone-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #000000;
+  opacity: 0.6;
+  box-sizing: border-box;
+}
+
+.feedback__phone a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.feedback__phone a:hover {
+  text-decoration: underline;
+}
+
+/* Адрес в секции feedback: 282×20, top 740px, left 54px; Onest 400, 14px, line-height 140%, center, #000000, opacity 0.6 */
+.feedback__address {
+  position: absolute;
+  top: var(--feedback-address-top);
+  left: var(--feedback-address-left);
+  width: var(--feedback-address-width);
+  min-height: var(--feedback-address-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #000000;
+  opacity: 0.6;
+  box-sizing: border-box;
+}
+
+.feedback__address a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.feedback__address a:hover {
+  text-decoration: underline;
+}
+
+/* Подпись «ПЕРМАНЕНТНЫЙ МАКИЯЖ» в секции permanent: 263×22, top 111px, left 63px; Onest 400, 20px, uppercase, #4E4E4E */
+.permanent__label {
+  position: absolute;
+  top: var(--permanent-label-top);
+  left: var(--permanent-label-left);
+  width: var(--permanent-label-width);
+  min-height: var(--permanent-label-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #4E4E4E;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+/* mac/Group 2, 3, 4 в секции permanent: top 165/217/269px, left 20px; 260×42, 123×42, 238×42 */
+.permanent__group {
+  position: absolute;
+  left: var(--permanent-group-left);
+  display: block;
+  opacity: 1;
+  object-fit: contain;
+  object-position: left top;
+}
+
+.permanent__group--2 {
+  top: var(--permanent-group-top);
+  width: var(--permanent-group2-width);
+  height: var(--permanent-group2-height);
+}
+
+.permanent__group--3 {
+  top: var(--permanent-group3-top);
+  width: var(--permanent-group3-width);
+  height: var(--permanent-group3-height);
+}
+
+.permanent__group--4 {
+  top: var(--permanent-group4-top);
+  width: var(--permanent-group4-width);
+  height: var(--permanent-group4-height);
+}
+
+/* mac/Line 8.svg в секции permanent: top 165px, left 292px; вертикальная линия 1×152px */
+.permanent__line {
+  position: absolute;
+  top: var(--permanent-line-top);
+  left: 292px;
+  width: 1px;
+  height: var(--permanent-line-height);
+  opacity: 1;
+  object-fit: fill;
+  object-position: left top;
+  pointer-events: none;
+}
+
+/* Цены в секции permanent: 9000Р, 5500Р, 7000Р; Onest 300, 16px, #4E4E4E */
+.permanent__price {
+  position: absolute;
+  top: var(--permanent-price-top);
+  left: var(--permanent-price-left);
+  width: var(--permanent-price-width);
+  min-height: var(--permanent-price-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: justify;
+  color: #4E4E4E;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+.permanent__price--2 {
+  top: var(--permanent-price2-top);
+  left: var(--permanent-price2-left);
+  width: var(--permanent-price2-width);
+  min-height: var(--permanent-price2-height);
+}
+
+.permanent__price--3 {
+  top: var(--permanent-price3-top);
+  left: var(--permanent-price3-left);
+  width: var(--permanent-price3-width);
+  min-height: var(--permanent-price3-height);
+}
+
+/* mac/Rectangle 2, Rectangle 3 (2), Rectangle 5 в секции permanent: 169×174 и 350×212; border-radius 20px */
+.permanent__rect {
+  position: absolute;
+  top: var(--permanent-rect-top);
+  width: var(--permanent-rect-width);
+  height: var(--permanent-rect-height);
+  display: block;
+  opacity: 1;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.permanent__rect--1 {
+  left: var(--permanent-rect1-left);
+}
+
+.permanent__rect--2 {
+  left: var(--permanent-rect2-left);
+}
+
+.permanent__rect--3 {
+  top: var(--permanent-rect3-top);
+  left: var(--permanent-rect3-left);
+  width: var(--permanent-rect3-width);
+  height: var(--permanent-rect3-height);
+}
+
+/* price/Rectangle 2, 3, 4 в секции pricelist2: top 329px; 169×174; border-radius 20px */
+.pricelist2__rect {
+  position: absolute;
+  top: var(--pricelist2-rect-top);
+  width: var(--pricelist2-rect-width);
+  height: var(--pricelist2-rect-height);
+  display: block;
+  opacity: 1;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Подпись «РЕСНИЦЫ» в секции pricelist2: top 111px, left 145px; 100×22; Onest 400, 20px, uppercase, #5C5C5C */
+.pricelist2__label {
+  position: absolute;
+  top: var(--pricelist2-label-top);
+  left: var(--pricelist2-label-left);
+  width: var(--pricelist2-label-width);
+  min-height: var(--pricelist2-label-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #5C5C5C;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+/* Текст «ЛАМИНИРОВАНИЕ И ОКРАШИВАНИЕ РЕСНИЦ» в секции pricelist2: 194×36, top 165px, left 20px; Onest 300 Light, 16px, line-height 110%, #4E4E4E */
+.pricelist2__item {
+  position: absolute;
+  top: var(--pricelist2-item-top);
+  left: var(--pricelist2-item-left);
+  width: var(--pricelist2-item-width);
+  height: var(--pricelist2-item-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0;
+  color: #4E4E4E;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+/* Текст «ОКРАШИВАНИЕ РЕСНИЦ ВАКСИНГ» в секции pricelist2: 202×36, top 217px, left 20px; #4E4E4E */
+.pricelist2__item--2 {
+  top: var(--pricelist2-item2-top);
+  left: var(--pricelist2-item2-left);
+  width: var(--pricelist2-item2-width);
+  height: var(--pricelist2-item2-height);
+}
+
+/* Текст «УДАЛЕНИЕ НЕЖЕЛАТЕЛЬНЫХ ВОЛОСКОВ» в секции pricelist2: 238×36, top 269px, left 20px; Onest 300, 16px, #4E4E4E */
+.pricelist2__item--3 {
+  top: var(--pricelist2-item3-top);
+  left: var(--pricelist2-item3-left);
+  width: var(--pricelist2-item3-width);
+  height: var(--pricelist2-item3-height);
+}
+
+/* price/Line 8.svg в секции pricelist2: top 165px, left 292px; вертикальная линия 1×152px, opacity 0.4 */
+.pricelist2__line {
+  position: absolute;
+  top: var(--pricelist2-line-top);
+  left: 292px;
+  width: 1px;
+  height: var(--pricelist2-line-height);
+  opacity: 1;
+  object-fit: fill;
+  object-position: left top;
+  pointer-events: none;
+}
+
+/* Цены в секции pricelist2: 2500Р, 500Р, 300Р; 51×18, 42×18, 41×18; Onest 300, 16px, #4E4E4E */
+.pricelist2__price {
+  position: absolute;
+  top: var(--pricelist2-price-top);
+  left: var(--pricelist2-price-left);
+  width: var(--pricelist2-price-width);
+  min-height: var(--pricelist2-price-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0;
+  color: #4E4E4E;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+.pricelist2__price--2 {
+  top: var(--pricelist2-price2-top);
+  left: var(--pricelist2-price2-left);
+  width: var(--pricelist2-price2-width);
+  min-height: var(--pricelist2-price2-height);
+}
+
+.pricelist2__price--3 {
+  top: var(--pricelist2-price3-top);
+  left: var(--pricelist2-price3-left);
+  width: var(--pricelist2-price3-width);
+  min-height: var(--pricelist2-price3-height);
+}
+
+.pricelist2__rect--1 {
+  left: var(--pricelist2-rect1-left);
+}
+
+.pricelist2__rect--2 {
+  left: var(--pricelist2-rect2-left);
+}
+
+/* Rectangle 4: 350×212, top 519px, left 20px */
+.pricelist2__rect--3 {
+  top: var(--pricelist2-rect4-top);
+  left: var(--pricelist2-rect4-left);
+  width: var(--pricelist2-rect4-width);
+  height: var(--pricelist2-rect4-height);
+}
+
+/* Заголовок секции «ПРАЙС ЛИСТ»: top 60px, left 92px; 206×35; Onest 32px, 110%, center */
+.pricelist__title {
+  position: absolute;
+  top: var(--pricelist-title-top);
+  left: var(--pricelist-title-left);
+  width: var(--pricelist-title-width);
+  min-height: var(--pricelist-title-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  opacity: 1;
+  box-sizing: border-box;
+  color: var(--color-text);
+}
+
+.pricelist__title-line {
+  display: inline;
+}
+
+/* «ПРАЙС» — Onest 200 ExtraLight */
+.pricelist__title-line--light {
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* «ЛИСТ» — Onest 600 SemiBold + градиент со свечением на первых двух буквах (ЛИ) */
+.pricelist__title-line--gradient {
+  font-weight: 600;
+  font-style: normal;
+  background: var(--accent-gradient-pricelist);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Подпись «БРОВИ» в секции прайс-лист: top 111px, left 160px; 69×22; Onest 400, 20px, uppercase, #4E4E4E */
+.pricelist__label {
+  position: absolute;
+  top: var(--pricelist-label-top);
+  left: var(--pricelist-label-left);
+  width: var(--pricelist-label-width);
+  min-height: var(--pricelist-label-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: #4E4E4E;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+/* aeth/Group 1.svg в секции прайс-лист: top 165px, left 20px; 164×42 */
+.pricelist__group {
+  position: absolute;
+  top: var(--pricelist-group-top);
+  left: var(--pricelist-group-left);
+  width: var(--pricelist-group-width);
+  height: var(--pricelist-group-height);
+  display: block;
+  opacity: 1;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* aeth/Line 8.svg в секции прайс-лист: top 165px, left 292px; вертикальная линия 216×1px, opacity 0.4 */
+.pricelist__line {
+  position: absolute;
+  top: var(--pricelist-line-top);
+  left: 292px;
+  width: 1px;
+  height: var(--pricelist-line-height);
+  display: block;
+  opacity: 1;
+  object-fit: fill;
+  object-position: left top;
+}
+
+/* Цена «1200Р» в секции прайс-лист: top 177px, left 324px; 46×18; Onest 300 Light, 16px, text-align justify */
+.pricelist__price {
+  position: absolute;
+  top: var(--pricelist-price-top);
+  left: var(--pricelist-price-left);
+  width: var(--pricelist-price-width);
+  min-height: var(--pricelist-price-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: justify;
+  color: var(--color-text);
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+/* Цена «2000Р» — top 232px, left 319px; 51×18 */
+.pricelist__price--2 {
+  top: var(--pricelist-price2-top);
+  left: var(--pricelist-price2-left);
+  width: var(--pricelist-price2-width);
+  min-height: var(--pricelist-price2-height);
+}
+
+/* Цена «2300Р» — top 284px, left 320px; 50×18 */
+.pricelist__price--3 {
+  top: var(--pricelist-price3-top);
+  left: var(--pricelist-price3-left);
+  width: var(--pricelist-price3-width);
+  min-height: var(--pricelist-price3-height);
+}
+
+/* Цена «2300Р» (4-й пункт) — top 345px, left 320px; 50×18 */
+.pricelist__price--4 {
+  top: var(--pricelist-price4-top);
+  left: var(--pricelist-price4-left);
+  width: var(--pricelist-price4-width);
+  min-height: var(--pricelist-price4-height);
+}
+
+/* aeth/Rectangle 3.svg и Rectangle 4.svg в секции прайс-лист: border-radius 20px */
+.pricelist__rect {
+  position: absolute;
+  display: block;
+  opacity: 1;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pricelist__rect--2 {
+  top: var(--pricelist-rect2-top);
+  left: var(--pricelist-rect2-left);
+  width: var(--pricelist-rect2-width);
+  height: var(--pricelist-rect2-height);
+}
+
+.pricelist__rect--3 {
+  top: var(--pricelist-rect3-top);
+  left: var(--pricelist-rect3-left);
+  width: var(--pricelist-rect3-width);
+  height: var(--pricelist-rect3-height);
+}
+
+.pricelist__rect--4 {
+  top: var(--pricelist-rect4-top);
+  left: var(--pricelist-rect4-left);
+  width: var(--pricelist-rect4-width);
+  height: var(--pricelist-rect4-height);
+}
+
+/* Текст «КОРРЕКЦИЯ И ОКРАШИВАНИЕ БРОВЕЙ» в секции прайс-лист: top 223px, left 20px; 194×36; Onest 300 Light, 16px, #4E4E4E */
+.pricelist__item {
+  position: absolute;
+  top: var(--pricelist-item-top);
+  left: var(--pricelist-item-left);
+  width: var(--pricelist-item-width);
+  min-height: var(--pricelist-item-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0;
+  color: #4E4E4E;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+/* Второй пункт прайс-листа: «ДОЛГОВРЕМЕННАЯ УКЛАДКА И КОРРЕКЦИЯ БРОВЕЙ» — top 275px, left 20px; 233×36 */
+.pricelist__item--2 {
+  top: var(--pricelist-item2-top);
+  width: var(--pricelist-item2-width);
+  min-height: var(--pricelist-item2-height);
+}
+
+/* Третий пункт прайс-листа: «ДОЛГОВРЕМЕННАЯ УКЛАДКА И КОРРЕКЦИЯ БРОВЕЙ+ОКРАШИВАНИЕ» — top 327px, left 20px; 238×54 */
+.pricelist__item--3 {
+  top: var(--pricelist-item3-top);
+  width: var(--pricelist-item3-width);
+  min-height: var(--pricelist-item3-height);
+}
+
+/* Заголовок секции «ЭСТЕТИКА В ДЕТАЛЯХ»: top 60px, left 103px; 185×70; Onest 32px, 110%, center */
+.aesthetics__title {
+  position: absolute;
+  top: var(--aesthetics-title-top);
+  left: var(--aesthetics-title-left);
+  width: var(--aesthetics-title-width);
+  min-height: var(--aesthetics-title-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  opacity: 1;
+  box-sizing: border-box;
+  color: var(--color-text);
+}
+
+.aesthetics__title-line {
+  display: block;
+}
+
+/* «ЭСТЕТИКА» — Onest 200 ExtraLight */
+.aesthetics__title-line--light {
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* «В ДЕТАЛЯХ» — Onest 500 Medium + градиент как ОБУЧЕНИЕ (#333 → #8f8f8f → #333) */
+.aesthetics__title-line--medium {
+  font-weight: 500;
+  font-style: normal;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Картинки aeth/1.svg и aeth/2.svg в секции «ЭСТЕТИКА В ДЕТАЛЯХ»: 169×170, top 162px; left 20px и 201px; border-radius 20px */
+.aesthetics__img {
+  position: absolute;
+  top: var(--aesthetics-img-top);
+  width: var(--aesthetics-img-width);
+  height: var(--aesthetics-img-height);
+  display: block;
+  border-radius: 20px;
+  opacity: 1;
+  object-fit: cover;
+  object-position: center;
+}
+
+.aesthetics__img--1 {
+  left: var(--aesthetics-img1-left);
+}
+
+.aesthetics__img--2 {
+  left: var(--aesthetics-img2-left);
+}
+
+/* aeth/3.svg: 350×158, top 344px, left 20px; border-radius 20px */
+.aesthetics__img--3 {
+  top: var(--aesthetics-img3-top);
+  left: var(--aesthetics-img3-left);
+  width: var(--aesthetics-img3-width);
+  height: var(--aesthetics-img3-height);
+}
+
+/* aeth/4.svg и aeth/5.svg: 169×170, top 514px; left 20px и 201px */
+.aesthetics__img--4 {
+  top: var(--aesthetics-img-row2-top);
+  left: var(--aesthetics-img1-left);
+}
+
+.aesthetics__img--5 {
+  top: var(--aesthetics-img-row2-top);
+  left: var(--aesthetics-img2-left);
+}
+
+/* Кнопка в секции «ЭСТЕТИКА В ДЕТАЛЯХ»: top 757px, left 20px; 350×55, border-radius 20px */
+.aesthetics__btn {
+  position: absolute;
+  top: var(--aesthetics-btn-top);
+  left: var(--aesthetics-btn-left);
+  display: block;
+  width: var(--aesthetics-btn-width);
+  height: var(--aesthetics-btn-height);
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 20px;
+  opacity: 1;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity var(--transition-fast);
+}
+
+.aesthetics__btn:hover {
+  opacity: 0.9;
+}
+
+.aesthetics__btn-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 20px;
+}
+
+/* Слайдер фотографий в секции Alina: top 465px, left 20px; 350×363. overflow hidden — лента слайдов 900%, не раздувать страницу */
+.alina__slider {
+  position: absolute;
+  top: var(--alina-visual-top);
+  left: var(--alina-visual-left);
+  width: var(--alina-visual-width);
+  height: var(--alina-visual-height);
+  overflow: hidden;
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.alina__slides {
+  display: flex;
+  width: 900%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  transition: transform var(--transition-base);
+  will-change: transform;
+}
+
+.alina__slides--dragging {
+  transition: none;
+}
+
+.alina__slide {
+  flex: 0 0 calc(100% / 9);
+  width: calc(100% / 9);
+  min-width: 0;
+  height: 100%;
+}
+
+.alina__slide .alina__visual {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+}
+
+.alina__slide--current .alina__visual {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Кнопки слайдера относительно 1.svg. Левая: width 15, height 31, top 167px, left 16px, angle 0°, opacity 1, border 1.5px */
+.alina__btn {
+  position: absolute;
+  top: 167px;
+  left: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1.5px solid transparent;
+  background: none;
+  cursor: pointer;
+  opacity: 1;
+  z-index: 2;
+  transition: opacity var(--transition-fast);
+}
+
+.alina__btn:hover {
+  opacity: 0.85;
+}
+
+.alina__btn:focus {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.alina__btn--next {
+  left: auto;
+  right: -5px;
+}
+
+.alina__btn-icon {
+  width: 15px;
+  height: 31px;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
 }
 
 /* Декоративное изображение h1.svg — позади Frame 12: top 54px, left -17px; 424×98; цвет в SVG #E6E6E6.
@@ -539,7 +1509,7 @@ a.btn-icon {
   object-position: center;
 }
 
-/* Заголовок секции Alina: top 275px, left 55px; 281×70; Onest 32px, 110%, center, opacity 1 */
+/* Заголовок секции Alina: Onest 32px, 110%, center; overflow visible — не обрезать последнюю букву */
 .alina__title {
   position: absolute;
   top: var(--alina-title-top);
@@ -554,6 +1524,7 @@ a.btn-icon {
   text-align: center;
   opacity: 1;
   box-sizing: border-box;
+  overflow: visible;
 }
 
 .alina__title-line {
@@ -570,6 +1541,7 @@ a.btn-icon {
 .alina__title-line--gradient {
   font-weight: 600;
   font-style: normal;
+  white-space: nowrap;
   background: var(--accent-gradient);
   -webkit-background-clip: text;
   background-clip: text;
