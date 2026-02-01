@@ -260,10 +260,13 @@ a.btn-icon {
   margin-top: var(--hero-title-line-gap);
 }
 
-/* БРОВИ. — Onest 600 SemiBold */
+/* ALINA — Onest 600 SemiBold, 38px, line-height 100%, letter-spacing 0 */
 .hero__title--strong {
   font-weight: 600;
   font-style: normal;
+  font-size: 38px;
+  line-height: 100%;
+  letter-spacing: 0;
 }
 
 /* ОБУЧЕНИЕ. — Onest 600 SemiBold + градиент #333 → #8f8f8f → #333 */
@@ -293,7 +296,31 @@ a.btn-icon {
   margin-bottom: 0;
 }
 
-/* Карточки hero: ровно top 520px (24px под текстом), left 20px и 201px */
+/* Цитата hero: top 502px, left 101px, 188×18; Onest 300 Light, 16px, line-height 110%; кавычки светло-серые */
+.hero__quote {
+  position: absolute;
+  top: var(--hero-quote-top);
+  left: var(--hero-quote-left);
+  width: var(--hero-quote-width);
+  min-height: var(--hero-quote-height);
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0;
+  color: #000000;
+  opacity: 1;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.hero__quote-mark {
+  color: #9a9a9a;
+}
+
+/* Карточки hero: top 536px; левая left 20px, правая left 201px (20+169+12); 169×206, border-radius 20px */
 .hero__cards {
   display: flex;
   gap: var(--hero-cards-gap);
@@ -313,15 +340,18 @@ a.btn-icon {
   object-fit: cover;
 }
 
-/* Кнопка hero: ровно top 758px (32px под карточками) */
+/* Кнопка hero: top 758px, left 20px, 350×55, border-radius 20px */
 .hero__btn {
+  position: absolute;
+  top: var(--hero-btn-top);
+  left: var(--hero-btn-left);
+  width: var(--hero-btn-width);
+  height: var(--hero-btn-height);
   display: block;
-  width: 100%;
-  max-width: 350px;
-  margin-top: 32px;
-  margin-left: auto;
-  margin-right: auto;
+  box-sizing: border-box;
   text-decoration: none;
+  border-radius: var(--hero-btn-radius);
+  opacity: 1;
   transition: opacity var(--transition-fast);
 }
 
@@ -336,12 +366,11 @@ a.btn-icon {
 
 .hero__btn-img {
   width: 100%;
-  height: 55px;
-  max-width: 350px;
+  height: 100%;
   object-fit: contain;
   object-position: center;
   display: block;
-  border-radius: 20px;
+  border-radius: var(--hero-btn-radius);
   pointer-events: none;
 }
 

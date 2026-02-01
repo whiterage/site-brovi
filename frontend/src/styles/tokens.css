@@ -85,18 +85,30 @@
   --hero-height: 844px;
   --hero-visual-height: 358px;
   --hero-btn-top: 758px;
+  --hero-btn-left: 20px;
+  --hero-btn-width: 350px;
+  --hero-btn-height: 55px;
+  --hero-btn-padding-y: 20px;
+  --hero-btn-padding-x: 141px;
+  --hero-btn-radius: 20px;
+  --hero-btn-gap: 10px;
   /* Карточки hero: top 520px, left 20px и 201px */
-  --hero-cards-top: 520px;
+  --hero-cards-top: 536px;
   --hero-card-width: 169px;
   --hero-card-height: 206px;
   --hero-cards-left: 20px;
   --hero-cards-gap: 12px;
-  /* Текст hero: top 416px, left 20px, 350×80 */
+  /* Текст hero: top 416px, left 20px, 350×60 */
   --hero-text-top: 416px;
   --hero-text-left: 20px;
   --hero-text-width: 350px;
-  --hero-text-height: 80px;
-  /* Заголовок hero: расстояние по высоте между «ЭСТЕТИКА. БРОВИ.» и «ОБУЧЕНИЕ.» */
+  --hero-text-height: 60px;
+  /* Цитата hero: top 502px, left 101px, 188×18 */
+  --hero-quote-top: 502px;
+  --hero-quote-left: 101px;
+  --hero-quote-width: 188px;
+  --hero-quote-height: 18px;
+  /* Заголовок hero: расстояние между строками */
   --hero-title-line-gap: 0.25em;
   /* Секция для мастеров: начало 885px, ширина 390, высота 844 */
   --section-masters-top: 885px;
@@ -170,7 +182,8 @@
   --feedback-reviews-width: 352px;
   --feedback-reviews-height: 237px;
   --feedback-reviews-slide-height: 150px;
-  --feedback-reviews-peek: 43.5px; /* (237 - 150) / 2 — верх/низ, чтобы слайд по центру и видны края соседних */
+  --feedback-reviews-peek: 43.5px;
+  /* (237 - 150) / 2 — верх/низ, чтобы слайд по центру и видны края соседних */
   /* Кнопки в секции feedback: top 618px; 79×70, 78×70, 79×70, 78×70; left 20, 111, 201, 292px; border-radius 24px */
   --feedback-btn-top: 618px;
   --feedback-btn1-left: 20px;
