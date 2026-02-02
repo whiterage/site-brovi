@@ -38,6 +38,49 @@ if (header) {
   window.addEventListener('resize', updateHeaderState);
 }
 
+// Панель навигации: по клику на кнопку-вектор выезжает справа налево, закрытие по крестику или по ссылке
+const headerNavBtn = document.getElementById('header-nav-btn');
+const navPanel = document.getElementById('nav-panel');
+const navPanelClose = document.getElementById('nav-panel-close');
+const navPanelLinks = document.querySelectorAll('.nav-panel__link');
+
+function openNavPanel() {
+  if (!navPanel) return;
+  navPanel.classList.add('is-open');
+  navPanel.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNavPanel() {
+  if (!navPanel) return;
+  navPanel.classList.remove('is-open');
+  navPanel.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+if (headerNavBtn && navPanel) {
+  headerNavBtn.addEventListener('click', () => {
+    if (navPanel.classList.contains('is-open')) closeNavPanel();
+    else openNavPanel();
+  });
+}
+
+if (navPanelClose) {
+  navPanelClose.addEventListener('click', closeNavPanel);
+}
+
+navPanelLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    closeNavPanel();
+  });
+});
+
+if (navPanel) {
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navPanel.classList.contains('is-open')) closeNavPanel();
+  });
+}
+
 // Слайдер фотографий в секции Alina: кнопки «назад»/«вперёд» + свайп пальцем на мобилке
 const alinaSlides = document.getElementById('alina-slides');
 const alinaPrev = document.getElementById('alina-prev');

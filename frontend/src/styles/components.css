@@ -142,28 +142,19 @@
 .header__btn-icon .btn-icon__img {
   width: var(--header-icon-width);
   height: var(--header-icon-height);
-  transition: filter var(--transition-base), stroke var(--transition-base);
+  transition: filter var(--transition-base), opacity var(--transition-base);
 }
 
-/* Над изображением: иконка белая */
+/* Над изображением: иконка белая — та же логика, что и у лого */
 .header--over-image .header__btn-icon .btn-icon__img {
   filter: brightness(0) invert(1);
-}
-
-.header--over-image .header__btn-icon .btn-icon__img path,
-.header--over-image .header__btn-icon .btn-icon__img [stroke] {
-  stroke: #fff !important;
-}
-
-/* Над белым: кнопка — простой тёмно-серый, без вычурного градиента */
-.header--over-white .header__btn-icon .btn-icon__img {
-  filter: none;
   opacity: 1;
 }
 
-.header--over-white .header__btn-icon .btn-icon__img path,
-.header--over-white .header__btn-icon .btn-icon__img [stroke] {
-  stroke: #4a4a4a !important;
+/* Над белым: иконка тёмно-серая — та же логика, что и у лого */
+.header--over-white .header__btn-icon .btn-icon__img {
+  filter: brightness(0) saturate(100%);
+  opacity: 0.6;
 }
 
 .btn-icon {
@@ -687,7 +678,7 @@ a.btn-icon {
   box-sizing: border-box;
 }
 
-/* Основное изображение отзывов: 350×150, border-radius 20px, border 1px; contain — не режем */
+/* Основное изображение отзывов: 350×150, border-radius 20px; SVG с вложенным растром — рендер в отдельном слое для чёткости */
 .feedback__reviews-slide img {
   width: 350px;
   height: 150px;
@@ -697,6 +688,9 @@ a.btn-icon {
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .feedback__reviews-slide-img--350x150 {
@@ -705,6 +699,8 @@ a.btn-icon {
   object-fit: contain;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Размытие снизу — нижняя часть окна (край следующего слайда) всегда размыта при скролле */
@@ -1595,4 +1591,168 @@ a.btn-icon {
   color: #000000;
   opacity: 0.6;
   box-sizing: border-box;
+}
+
+/* Панель навигации: по клику выезжает справа налево, на весь экран (без полосы слева) */
+.nav-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  height: 100vh;
+  z-index: 300;
+  background: var(--color-bg);
+  box-sizing: border-box;
+  transform: translateX(100%);
+  transition: transform 0.35s ease-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.nav-panel.is-open {
+  transform: translateX(0);
+}
+
+/* При открытой панели — белый фон на весь экран, главная страница скрыта */
+.nav-panel.is-open::before {
+  content: '';
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: calc(100vh + 100px);
+  min-height: 100vh;
+  background: var(--color-bg);
+  z-index: -1;
+}
+
+/* Обёртка для SVG-декора: прижать к правому краю, по референсу top 122px */
+.nav-panel__deco-svg-wrap {
+  display: flex;
+  position: absolute;
+  top: 122px;
+  right: 0;
+  bottom: 0;
+  width: 120px;
+  padding-right: 0;
+  padding-left: 0;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Контейнер SVG внутри обёртки: на всю высоту, ширина по соотношению 111×722 */
+.nav-panel__deco-svg-wrap .nav-panel__deco {
+  position: static;
+  height: 100%;
+  width: auto;
+  flex-shrink: 0;
+  display: block;
+  color: #E6E6E6;
+}
+
+.nav-panel__deco-svg {
+  height: 100%;
+  width: auto;
+  display: block;
+  vertical-align: middle;
+}
+
+/* Обёртка декора: прижать текст к правому краю панели */
+.nav-panel__deco-wrap {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100px;
+  padding-top: var(--header-height);
+  padding-bottom: 24px;
+  padding-right: 0;
+  padding-left: 0;
+  box-sizing: border-box;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Вертикальный текст «ОБУЧЕНИЕ» — внутри обёртки, всегда у правого края */
+.nav-panel__deco-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-family: var(--font-onest);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  letter-spacing: 0.1em;
+  color: #E6E6E6;
+  line-height: 1.25;
+}
+
+.nav-panel--deco-as-text .nav-panel__deco-svg-wrap {
+  display: none;
+}
+
+.nav-panel--deco-as-text .nav-panel__deco-wrap {
+  display: flex;
+}
+
+/* Крестик закрытия: иконка в 5 раз меньше макета (16/5 × 14/5), top 50px, область нажатия больше */
+.nav-panel__close {
+  position: absolute;
+  top: 50px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.nav-panel__close-icon {
+  width: 16px;
+  height: 14px;
+  display: block;
+  object-fit: contain;
+}
+
+/* Навигация: top 122px, left 32px; второй пункт top 172px → gap 32px; все пункты Onest 500, 16px, line-height 110% */
+.nav-panel__nav {
+  display: flex;
+  flex-direction: column;
+  padding: 122px 0 var(--spacing-xl) 32px;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+.nav-panel__link {
+  font-family: var(--font-onest);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 0;
+  min-height: 18px;
+  opacity: 1;
+  transition: color var(--transition-fast);
+}
+
+.nav-panel__link:hover {
+  color: var(--color-primary);
 }

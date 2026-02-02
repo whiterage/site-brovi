@@ -80,6 +80,11 @@
   /* Высота хедера целиком (для прижатия hero к верху) */
   --header-height: calc(var(--header-top) + var(--header-ui-height) + var(--spacing-md));
 
+  /* Панель навигации: 390×844, top -48px; выезжает справа налево */
+  --nav-panel-width: 390px;
+  --nav-panel-height: 844px;
+  --nav-panel-top: -48px;
+
   /* Hero — по макету */
   --hero-width: 390px;
   --hero-height: 844px;
