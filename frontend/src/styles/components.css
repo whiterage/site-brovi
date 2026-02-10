@@ -1604,14 +1604,16 @@ a.btn-icon {
   z-index: 300;
   background: var(--color-bg);
   box-sizing: border-box;
-  transform: translateX(100%);
-  transition: transform 0.35s ease-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease-out;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
 .nav-panel.is-open {
-  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* При открытой панели — белый фон на весь экран, главная страница скрыта */
@@ -1659,7 +1661,6 @@ a.btn-icon {
   height: 100%;
   width: auto;
   display: block;
-  vertical-align: middle;
 }
 
 /* Обёртка декора: прижать текст к правому краю панели */

@@ -38,7 +38,7 @@ if (header) {
   window.addEventListener('resize', updateHeaderState);
 }
 
-// Панель навигации: по клику на кнопку-вектор выезжает справа налево, закрытие по крестику или по ссылке
+// Панель навигации (страница «Обучение» — отдельный obuchenie.html)
 const headerNavBtn = document.getElementById('header-nav-btn');
 const navPanel = document.getElementById('nav-panel');
 const navPanelClose = document.getElementById('nav-panel-close');
@@ -55,7 +55,7 @@ function closeNavPanel() {
   if (!navPanel) return;
   navPanel.classList.remove('is-open');
   navPanel.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+  if (headerNavBtn) headerNavBtn.focus({ preventScroll: true });
 }
 
 if (headerNavBtn && navPanel) {
@@ -70,9 +70,7 @@ if (navPanelClose) {
 }
 
 navPanelLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    closeNavPanel();
-  });
+  link.addEventListener('click', () => closeNavPanel());
 });
 
 if (navPanel) {

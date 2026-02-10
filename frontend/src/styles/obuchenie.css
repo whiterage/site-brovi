@@ -1,0 +1,188 @@
+/* Страница «Обучение» — отдельный HTML, вёрстка с нуля по макету 390×844 */
+
+/* Центрирование без transform (баг из код-ревью): left/right + margin auto */
+.obuchenie {
+  position: relative;
+  width: 390px;
+  max-width: 100%;
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--color-bg);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Кнопка «назад»: по макету иконка 7×14 на top 48px, left 22.5px; зона нажатия 44×44 */
+.obuchenie__back {
+  position: absolute;
+  /* Сдвиг ссылки, чтобы центр иконки 7×14 совпал с (22.5, 48): left=22.5−(44−7)/2, top=48−(44−14)/2 */
+  top: 33px;
+  left: 4px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  z-index: 10;
+  opacity: 1;
+}
+
+.obuchenie__back-icon {
+  width: 7px;
+  height: 14px;
+  min-width: 7px;
+  min-height: 14px;
+  display: block;
+  object-fit: fill;
+  object-position: center;
+  /* По макету 7×14; fill чтобы SVG (9×16) заполнял область, не вписывался — визуально ровно 7×14 */
+}
+
+/* Кнопка меню (вектор): иконка 16×14 по макету на top 48px, left 353px; зона нажатия 44×44 */
+.obuchenie__nav-btn {
+  position: absolute;
+  top: 33px;
+  left: 339px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  z-index: 10;
+  opacity: 1;
+}
+
+.obuchenie__nav-btn-icon {
+  width: 16px;
+  height: 14px;
+  min-width: 16px;
+  min-height: 14px;
+  display: block;
+  object-fit: fill;
+  object-position: center;
+  filter: brightness(0) saturate(100%);
+}
+
+/* Заголовок по макету: 229×70, top 60px, left 81px, opacity 1 */
+.obuchenie__title {
+  position: absolute;
+  top: 60px;
+  left: 81px;
+  width: 229px;
+  height: 70px;
+  margin: 0;
+  font-family: var(--font-onest);
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+.obuchenie__title-line {
+  display: block;
+}
+
+.obuchenie__title-line--light {
+  font-weight: 200;
+  color: var(--color-text);
+}
+
+.obuchenie__title-line--gradient {
+  font-weight: 500;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Подзаголовок по макету: 288×40, top 138px, left 51px, Onest 400, 14px, 140%, center, #000, opacity 0.6 */
+.obuchenie__subtitle {
+  position: absolute;
+  top: 138px;
+  left: 51px;
+  width: 288px;
+  height: 40px;
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  text-align: center;
+  color: #000000;
+  opacity: 0.6;
+  box-sizing: border-box;
+}
+
+/* Изображение по макету: 350×426, top 202px, left 21px, border-radius 20px */
+.obuchenie__img {
+  position: absolute;
+  top: 202px;
+  left: 21px;
+  width: 350px;
+  height: 426px;
+  display: block;
+  object-fit: cover;
+  border-radius: 20px;
+  opacity: 1;
+}
+
+/* Кнопка по макету: 350×55, top 660px, left 20px, border-radius 20px (в макете также padding 20 141, gap 10) */
+.obuchenie__btn {
+  position: absolute;
+  top: 660px;
+  left: 20px;
+  width: 350px;
+  height: 55px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: none;
+  border-radius: 20px;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  opacity: 1;
+  overflow: hidden;
+}
+
+.obuchenie__btn-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.obuchenie__btn--resnitsy {
+  top: 731px;
+}
+
+/* Контент под блоком (вторая кнопка 731+55 + отступ) */
+.obuchenie__inner {
+  padding: calc(731px + 55px + var(--spacing-lg)) var(--spacing-lg) var(--spacing-lg);
+  min-height: 100vh;
+}
+
+.obuchenie__content {
+  font-family: var(--font-onest);
+}
