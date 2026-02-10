@@ -19,10 +19,12 @@
   min-height: 844px;
   overflow: hidden;
 }
+
 /* Кнопка всегда последний элемент: блок под ней не показываем */
 .obuchenie--program-page .obuchenie__inner {
   display: none;
 }
+
 /* При ОТКРЫТОМ аккордеоне — страница расширяется, скролл по контенту до кнопки */
 .obuchenie--program-page.obuchenie--accordion-open {
   height: auto;
@@ -37,6 +39,7 @@
   height: 190px;
   flex-shrink: 0;
 }
+
 /* На странице программы контент идёт сразу под шапкой (margin даёт шапка) */
 .obuchenie--program-page .obuchenie__program-content {
   margin-top: 0;
@@ -321,7 +324,8 @@
 /* Страница программы: при ЗАКРЫТОМ аккордеоне — дефолтная высота страницы (короткая), макетные позиции 506/560/702/736 */
 .obuchenie__program-content {
   position: relative;
-  z-index: 1; /* ниже шапки (назад, меню, мета, заголовок), чтобы не перекрывать их при открытом аккордеоне */
+  z-index: 1;
+  /* ниже шапки (назад, меню, мета, заголовок), чтобы не перекрывать их при открытом аккордеоне */
   margin-top: 190px;
   padding: 0;
   width: 350px;
@@ -332,14 +336,34 @@
   min-height: 601px;
   box-sizing: border-box;
 }
-.obuchenie__program-content .obuchenie__accordion {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 350px;
-  margin: 0;
+
+/* На странице программы: аккордеоны в потоке — при раскрытии первого второй и футер уезжают вниз, листаешь и видишь их */
+.obuchenie--program-page .obuchenie__program-content .obuchenie__accordion {
+  position: static;
+  width: 100%;
+  margin: 0 0 16px 0;
+  /* отступ между первым и вторым аккордеоном */
   z-index: 5;
 }
+
+.obuchenie--program-page .obuchenie__program-content .obuchenie__accordion:last-child {
+  margin-bottom: 0;
+}
+
+/* Когда оба закрыты: футер под вторым аккордеоном, кнопка прижата к низу (736px) */
+.obuchenie--program-page .obuchenie__program-footer {
+  position: static;
+  width: 100%;
+  margin-top: 208px;
+  box-sizing: border-box;
+}
+
+/* Когда любой аккордеон открыт: футер в потоке, кнопка адаптивно под контентом */
+.obuchenie--program-page.obuchenie--accordion-open .obuchenie__program-footer {
+  margin-top: 24px;
+}
+
+/* Общие стили футера (позиции внутри при статичном футере) */
 .obuchenie__program-footer {
   position: absolute;
   top: 316px;
@@ -347,6 +371,7 @@
   width: 350px;
   box-sizing: border-box;
 }
+
 /* Позиции внутри футера как в макете (относительно top 506px) */
 .obuchenie__program-footer .obuchenie__promo {
   position: absolute;
@@ -356,12 +381,14 @@
   width: 308px;
   height: 38px;
 }
+
 .obuchenie__program-footer .obuchenie__deco {
   position: absolute;
   top: 54px;
   left: 0;
   margin: 0;
 }
+
 .obuchenie__program-footer .obuchenie__price {
   position: absolute;
   top: 196px;
@@ -371,6 +398,7 @@
   height: 18px;
   text-align: center;
 }
+
 .obuchenie__program-footer .obuchenie__btn {
   position: absolute;
   top: 230px;
@@ -380,31 +408,24 @@
   height: 55px;
 }
 
-/*
- * Только при ОТКРЫТОМ аккордеоне — страница развёрнутая по высоте, футер внизу (2152/2348/2382).
- * Аккордеон остаётся position: absolute, чтобы верхний UI (назад, меню, мета, заголовок) не съезжал.
- */
-.obuchenie--accordion-open .obuchenie__program-content {
-  min-height: 2247px; /* развёрнутая высота только когда открыт */
+/* При открытом аккордеоне на странице программы высота по контенту (аккордеоны + футер в потоке) */
+.obuchenie--program-page.obuchenie--accordion-open .obuchenie__program-content {
+  min-height: 0;
 }
-/* аккордеон не переключаем в static — остаётся absolute, визуально как при закрытом */
-.obuchenie--accordion-open .obuchenie__program-footer {
-  position: absolute;
-  top: 1962px;   /* 2152 - 190 (margin-top program-content) */
-  left: 0;
-  width: 350px;
-}
+
 /* Промо: top 2152px, left 45.05px от страницы — полноразмерный текст */
 .obuchenie--accordion-open .obuchenie__program-footer .obuchenie__promo {
   position: absolute;
   top: 0;
-  left: 26px;    /* 45.05 - 19 */
+  left: 26px;
+  /* 45.05 - 19 */
   margin: 0;
   width: 308px;
   min-height: 38px;
   font-size: 16px;
   line-height: 110%;
 }
+
 /* Priymak (декор): крупно, пропорции 397×61 */
 .obuchenie--accordion-open .obuchenie__program-footer .obuchenie__deco {
   position: absolute;
@@ -419,11 +440,14 @@
   opacity: 0.4;
   filter: brightness(0) saturate(100%) invert(85%);
 }
+
 /* Цена: top 2348px, left 142.05px — полноразмерный текст */
 .obuchenie--accordion-open .obuchenie__program-footer .obuchenie__price {
   position: absolute;
-  top: 196px;    /* 2348 - 2152 */
-  left: 123px;   /* 142.05 - 19 */
+  top: 196px;
+  /* 2348 - 2152 */
+  left: 123px;
+  /* 142.05 - 19 */
   margin: 0;
   width: 114px;
   min-height: 18px;
@@ -431,11 +455,14 @@
   line-height: 110%;
   text-align: center;
 }
+
 /* Кнопка: 350×55 без сжатия, картинка на всю область */
 .obuchenie--accordion-open .obuchenie__program-footer .obuchenie__btn {
   position: absolute;
-  top: 230px;    /* 2382 - 2152 */
-  left: 6px;     /* 25.05 - 19 от страницы */
+  top: 230px;
+  /* 2382 - 2152 */
+  left: 6px;
+  /* 25.05 - 19 от страницы */
   margin: 0;
   width: 350px;
   height: 55px;
@@ -447,10 +474,53 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+
 .obuchenie--accordion-open .obuchenie__program-footer .obuchenie__btn .obuchenie__btn-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* На странице программы футер в потоке — дети не absolute, а друг под другом */
+.obuchenie--program-page.obuchenie--accordion-open .obuchenie__program-footer .obuchenie__promo,
+.obuchenie--program-page .obuchenie__program-footer .obuchenie__promo {
+  position: static;
+  margin: 0 26px 16px;
+}
+
+.obuchenie--program-page.obuchenie--accordion-open .obuchenie__program-footer .obuchenie__deco,
+.obuchenie--program-page .obuchenie__program-footer .obuchenie__deco {
+  position: static;
+  margin: 0 auto 16px;
+  display: block;
+}
+
+.obuchenie--program-page.obuchenie--accordion-open .obuchenie__program-footer .obuchenie__price,
+.obuchenie--program-page .obuchenie__program-footer .obuchenie__price {
+  position: static;
+  margin: 24px 0 16px 123px;
+  /* left по макету 142px от страницы → 123px от футера */
+  width: 114px;
+  text-align: center;
+  display: block;
+}
+
+.obuchenie--program-page.obuchenie--accordion-open .obuchenie__program-footer .obuchenie__btn,
+.obuchenie--program-page .obuchenie__program-footer .obuchenie__btn {
+  position: static;
+  margin: 24px auto 0;
+  display: flex;
+  width: 350px;
+}
+
+/* При открытых аккордеонах — кнопку чуть приподнять от низа (не прибита к краю) */
+.obuchenie--program-page.obuchenie--accordion-open .obuchenie__program-footer .obuchenie__btn {
+  margin-bottom: 10px;
+}
+
+/* Когда оба закрыты: кнопка ровно top 736px (506 старт футера + 189 промо/декор/цена + 41) */
+.obuchenie--program-page:not(.obuchenie--accordion-open) .obuchenie__program-footer .obuchenie__btn {
+  margin-top: 41px;
 }
 
 /* Общая рамка — при открытии растягивается вниз (max-height), не рисуется второй блок */
@@ -482,9 +552,9 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Заголовок аккордеона по макету: 111×16, визуально top 205px left 43px (24px от шапки), Onest 300, 16px, #4E4E4E */
+/* Заголовок аккордеона: 129×16, Onest Light 16px, line-height 110%, center */
 .obuchenie__accordion-title {
-  width: 111px;
+  width: 129px;
   height: 16px;
   font-family: var(--font-onest);
   font-weight: 300;
@@ -497,25 +567,37 @@
   box-sizing: border-box;
 }
 
+/* Первый аккордеон: заголовок вровень со вторым и третьим */
+.obuchenie--program-page .obuchenie__program-content>.obuchenie__accordion:first-child .obuchenie__accordion-header {
+  padding-left: 15px;
+}
+
+/* Стрелка раскрытия: accordion.svg. Размер в 10 раз (70×140); где править — переменные ниже */
 .obuchenie__accordion-arrow {
+  --accordion-arrow-width: 70px;
+  /* размер стрелки: правь здесь и следующую строку (оригинал 7×14) */
+  --accordion-arrow-height: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
+  min-width: var(--accordion-arrow-width);
+  height: var(--accordion-arrow-height);
   margin: 0 -8px 0 0;
-  color: var(--color-text);
   transition: transform 0.25s ease;
+}
+
+.obuchenie__accordion-arrow-img {
+  display: block;
+  width: var(--accordion-arrow-width);
+  height: var(--accordion-arrow-height);
+  object-fit: contain;
 }
 
 .obuchenie__accordion.is-open .obuchenie__accordion-arrow {
   transform: rotate(180deg);
 }
 
-.obuchenie__accordion-content {
-  /* Контент внутри той же рамки — без своей рамки */
-}
 
 .obuchenie__accordion-body {
   position: relative;
@@ -565,6 +647,170 @@
   object-fit: cover;
   border-radius: 20px;
   margin-bottom: 24px;
+}
+
+/* Второй аккордеон: top картинки задаётся padding-top тела (от края аккордеона), без margin — иначе схлопывание.
+   min-height нужен, чтобы тело растягивалось под абсолютно позиционированные блоки (3 Модели, время) — иначе они уходят за границу */
+.obuchenie__accordion-body--day2 {
+  padding-top: 47px;
+  /* top картинки от верха второго аккордеона — меняй здесь */
+  min-height: 440px;
+  /* нижний блок на top 361px + высота — чтобы весь текст был виден */
+}
+
+.obuchenie__accordion-img--day2 {
+  margin-top: 0;
+  margin-left: 0;
+  margin-bottom: 24px;
+}
+
+/* Третий аккордеон: картинка 302×246, top 47px left 24px, border-radius 20px */
+.obuchenie__accordion-body--day3 {
+  padding-top: 47px;
+  min-height: 580px;
+}
+.obuchenie__accordion-img--day3 {
+  margin-top: 0;
+  margin-left: 0;
+  margin-bottom: 24px;
+}
+
+/* Третий аккордеон: «Подводим итоги» — 127×18, top 325px left 112px */
+.obuchenie__accordion-day3-title {
+  position: absolute;
+  top: 325px;
+  left: 112px;
+  width: 127px;
+  height: 18px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
+/* Третий аккордеон: «2 Модели» — 65×20, top 367px left 24px */
+.obuchenie__accordion-day3-caption {
+  position: absolute;
+  top: 367px;
+  left: 24px;
+  width: 65px;
+  height: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
+/* Третий аккордеон: «Выдача сертификата» — 141×20, top 403px left 24px */
+.obuchenie__accordion-day3-cert {
+  position: absolute;
+  top: 403px;
+  left: 24px;
+  width: 141px;
+  height: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
+/* Третий аккордеон: «С 10:00 до 18:00…» — 324×40, top 439px left 24px */
+.obuchenie__accordion-day3-time {
+  position: absolute;
+  top: 439px;
+  left: 24px;
+  width: 324px;
+  min-height: 40px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
+/* Третий аккордеон: цены — цвет #4E4E4E */
+.obuchenie__accordion-day3-price {
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: #4E4E4E;
+}
+.obuchenie__accordion-day3-price--group {
+  position: absolute;
+  top: 511px;
+  left: 77px;
+  width: 196px;
+  height: 20px;
+}
+.obuchenie__accordion-day3-price--indiv {
+  position: absolute;
+  top: 547px;
+  left: 91px;
+  width: 168px;
+  height: 20px;
+}
+
+/* Второй аккордеон: подпись «3 Модели» — 65×20, top 325px left 24px от тела аккордеона */
+.obuchenie__accordion-day2-caption {
+  position: absolute;
+  top: 325px;
+  left: 24px;
+  width: 65px;
+  height: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
+/* Второй аккордеон: «С 10:00 до 18:00…» — 213×40, top 361px left 24px */
+.obuchenie__accordion-day2-time {
+  position: absolute;
+  top: 361px;
+  left: 24px;
+  width: 213px;
+  min-height: 40px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: var(--color-text);
 }
 
 /* Текст под картинкой по макету: 347×82, top 557px left 24px (от страницы) */
@@ -618,9 +864,11 @@
 .obuchenie__accordion-text--part2 .obuchenie__accordion-num {
   font-size: 38px;
 }
+
 .obuchenie__accordion-text--part2 .obuchenie__accordion-desc {
   font-size: 14px;
 }
+
 .obuchenie__accordion-text--part2 {
   margin-top: 16px;
   width: 347px;
@@ -628,12 +876,15 @@
   max-width: calc(100% + 19px);
   opacity: 0.6;
 }
+
 .obuchenie__accordion-text--part2-block1 {
   min-height: 142px;
 }
+
 .obuchenie__accordion-text--part2-block2 {
   min-height: 122px;
 }
+
 .obuchenie__accordion-text--part2-block3 {
   min-height: 82px;
 }
@@ -694,6 +945,7 @@
 .obuchenie__inner--brovi {
   padding-top: calc(736px + 55px + var(--spacing-lg));
 }
+
 .obuchenie--accordion-open .obuchenie__inner--brovi {
   padding-top: var(--spacing-lg);
 }

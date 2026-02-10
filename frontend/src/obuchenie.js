@@ -46,9 +46,6 @@ function updateAccordionOpenState() {
   if (obuchenieMain) {
     if (anyOpen) {
       obuchenieMain.classList.add('obuchenie--accordion-open');
-      /* После перерасчёта высоты страницы браузер может сдвинуть scroll — фиксируем вверх */
-      requestAnimationFrame(() => window.scrollTo(0, 0));
-      setTimeout(() => window.scrollTo(0, 0), 0);
     } else {
       obuchenieMain.classList.remove('obuchenie--accordion-open');
     }
@@ -61,6 +58,7 @@ document.querySelectorAll('.obuchenie__accordion').forEach((accordion) => {
   if (!header || !arrow) return;
 
   header.addEventListener('click', (e) => {
+    e.preventDefault(); /* чтобы клик по шапке не вёл к переходу/обновлению */
     const isOpen = accordion.classList.contains('is-open');
     if (arrow.contains(e.target)) {
       e.stopPropagation();
