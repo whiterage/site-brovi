@@ -37,3 +37,37 @@ if (navBtn && navPanel) {
 if (navClose && navPanel) {
   navClose.addEventListener('click', closeNav);
 }
+
+/* Аккордеон: раскрыть по клику на шапку, закрыть только по стрелке; при открытии — футер уходит в поток под аккордеон */
+const obuchenieMain = document.getElementById('obuchenie') || document.querySelector('.obuchenie');
+
+function updateAccordionOpenState() {
+  const anyOpen = document.querySelector('.obuchenie__accordion.is-open');
+  if (obuchenieMain) {
+    if (anyOpen) {
+      obuchenieMain.classList.add('obuchenie--accordion-open');
+      window.scrollTo(0, 0); /* верхний UI на месте, как при закрытом */
+    } else {
+      obuchenieMain.classList.remove('obuchenie--accordion-open');
+    }
+  }
+}
+
+document.querySelectorAll('.obuchenie__accordion').forEach((accordion) => {
+  const header = accordion.querySelector('.obuchenie__accordion-header');
+  const arrow = accordion.querySelector('.obuchenie__accordion-arrow');
+  if (!header || !arrow) return;
+
+  header.addEventListener('click', (e) => {
+    const isOpen = accordion.classList.contains('is-open');
+    if (arrow.contains(e.target)) {
+      e.stopPropagation();
+      accordion.classList.toggle('is-open');
+      header.setAttribute('aria-expanded', accordion.classList.contains('is-open'));
+    } else if (!isOpen) {
+      accordion.classList.add('is-open');
+      header.setAttribute('aria-expanded', 'true');
+    }
+    updateAccordionOpenState();
+  });
+});
