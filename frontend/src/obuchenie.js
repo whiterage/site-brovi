@@ -46,7 +46,9 @@ function updateAccordionOpenState() {
   if (obuchenieMain) {
     if (anyOpen) {
       obuchenieMain.classList.add('obuchenie--accordion-open');
-      window.scrollTo(0, 0); /* верхний UI на месте, как при закрытом */
+      /* После перерасчёта высоты страницы браузер может сдвинуть scroll — фиксируем вверх */
+      requestAnimationFrame(() => window.scrollTo(0, 0));
+      setTimeout(() => window.scrollTo(0, 0), 0);
     } else {
       obuchenieMain.classList.remove('obuchenie--accordion-open');
     }

@@ -30,26 +30,16 @@
   overflow: visible;
 }
 
-/* При открытом аккордеоне шапка фиксирована к viewport — не съезжает (main растёт, absolute бы сдвигался) */
-.obuchenie--accordion-open .obuchenie__back {
-  position: fixed;
-  left: calc(50% - 191px); /* 390/2 - 195 + 4 */
-  top: 33px;
+/* Шапка страницы программы: в потоке, высота 190px — шапка не «уезжает» при открытии аккордеона */
+.obuchenie__header {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  flex-shrink: 0;
 }
-.obuchenie--accordion-open .obuchenie__nav-btn {
-  position: fixed;
-  left: calc(50% + 144px); /* -195 + 339 */
-  top: 33px;
-}
-.obuchenie--accordion-open .obuchenie__meta {
-  position: fixed;
-  left: calc(50% - 68px);  /* -195 + 127 */
-  top: 60px;
-}
-.obuchenie--accordion-open .obuchenie__program-heading {
-  position: fixed;
-  left: calc(50% - 166px); /* -195 + 29 */
-  top: 88px;
+/* На странице программы контент идёт сразу под шапкой (margin даёт шапка) */
+.obuchenie--program-page .obuchenie__program-content {
+  margin-top: 0;
 }
 
 /* Кнопка «назад»: по макету иконка 7×14 на top 48px, left 22.5px; зона нажатия 44×44 */
