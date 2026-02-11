@@ -293,11 +293,11 @@
   filter: brightness(0) saturate(100%) invert(85%);
 }
 
-/* Страницы программ: текст про скидку/промокод — 308×38, top 506px, left 45px */
+/* Страницы программ: текст про скидку/промокод — 308×38, top 479px, left 45.05px */
 .obuchenie__promo {
   position: absolute;
-  top: 506px;
-  left: 45px;
+  top: 479px;
+  left: 45.05px;
   width: 308px;
   height: 38px;
   margin: 0;
@@ -350,7 +350,86 @@
   margin-bottom: 0;
 }
 
-/* Когда оба закрыты: футер под вторым аккордеоном, кнопка прижата к низу (736px) */
+/* Когда оба закрыты: футер с фиксированными позициями по макету (промо 479px, декор 533px, цена 675px, кнопка 709px) */
+.obuchenie--program-page:not(.obuchenie--accordion-open) .obuchenie__program-footer {
+  position: absolute;
+  top: 289px;
+  /* 479px от верха страницы − 190px шапка (относительно program-content) */
+  left: 0;
+  width: 350px;
+  min-height: 285px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.obuchenie--program-page:not(.obuchenie--accordion-open) .obuchenie__program-footer .obuchenie__promo {
+  position: absolute;
+  top: 0;
+  left: 26.05px;
+  /* 45.05 - 19 */
+  width: 308px;
+  height: 38px;
+  margin: 0;
+  opacity: 1;
+}
+
+.obuchenie--program-page:not(.obuchenie--accordion-open) .obuchenie__program-footer .obuchenie__deco {
+  position: absolute;
+  top: 54px;
+  /* 533 - 479 */
+  left: 0;
+  width: 397px;
+  height: 61px;
+  margin: 0;
+  opacity: 0.4;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.obuchenie--program-page:not(.obuchenie--accordion-open) .obuchenie__program-footer .obuchenie__price {
+  position: absolute;
+  top: 196px;
+  /* 675 - 479 */
+  left: 123.05px;
+  /* 142.05 - 19 */
+  width: 114px;
+  height: 18px;
+  margin: 0;
+  opacity: 1;
+  text-align: center;
+}
+
+.obuchenie--program-page:not(.obuchenie--accordion-open) .obuchenie__program-footer .obuchenie__btn {
+  position: absolute;
+  top: 210px;
+  /* 709 - 479 */
+  left: 6.05px;
+  /* 25.05 - 19 */
+  width: 350px;
+  height: 55px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.obuchenie--program-page:not(.obuchenie--accordion-open) .obuchenie__program-footer .obuchenie__btn .obuchenie__btn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Когда аккордеоны закрыты — футер не в потоке, не добавляем margin-top */
+.obuchenie--program-page:not(.obuchenie--accordion-open) .obuchenie__program-content {
+  margin-bottom: 0;
+}
+
+/* По умолчанию футер в потоке; при закрытых аккордеонах переопределяется выше на position: absolute */
 .obuchenie--program-page .obuchenie__program-footer {
   position: static;
   width: 100%;
@@ -372,7 +451,7 @@
   box-sizing: border-box;
 }
 
-/* Позиции внутри футера как в макете (относительно top 506px) */
+/* Позиции внутри футера: промо 308×38, left 45.05px от страницы → 26px от футера при top 479px */
 .obuchenie__program-footer .obuchenie__promo {
   position: absolute;
   top: 0;
@@ -380,6 +459,7 @@
   margin: 0;
   width: 308px;
   height: 38px;
+  opacity: 1;
 }
 
 .obuchenie__program-footer .obuchenie__deco {
@@ -481,7 +561,7 @@
   object-fit: cover;
 }
 
-/* На странице программы футер в потоке — дети не absolute, а друг под другом */
+/* На странице программы футер в потоке — промо, декор, цена, кнопка друг под другом. Сдвиг промо по вертикали: меняй margin-top */
 .obuchenie--program-page.obuchenie--accordion-open .obuchenie__program-footer .obuchenie__promo,
 .obuchenie--program-page .obuchenie__program-footer .obuchenie__promo {
   position: static;
@@ -669,6 +749,7 @@
   padding-top: 47px;
   min-height: 580px;
 }
+
 .obuchenie__accordion-img--day3 {
   margin-top: 0;
   margin-left: 0;
@@ -760,6 +841,7 @@
   letter-spacing: 0;
   color: #4E4E4E;
 }
+
 .obuchenie__accordion-day3-price--group {
   position: absolute;
   top: 511px;
@@ -767,6 +849,7 @@
   width: 196px;
   height: 20px;
 }
+
 .obuchenie__accordion-day3-price--indiv {
   position: absolute;
   top: 547px;
@@ -947,5 +1030,207 @@
 }
 
 .obuchenie--accordion-open .obuchenie__inner--brovi {
+  padding-top: var(--spacing-lg);
+}
+
+/* Страница «Ресницы»: расположение аккордеонов — первый top 225px, второй top 287px, left 20px, width 350 */
+.obuchenie--resnitsy-page .obuchenie__program-content {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.obuchenie--resnitsy-page .obuchenie__program-content>.obuchenie__accordion:first-child {
+  margin-top: 35px;
+  /* 225 - 190 (шапка) */
+  width: 350px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.obuchenie--resnitsy-page .obuchenie__program-content>.obuchenie__accordion:nth-child(2) {
+  margin-top: 16px;
+  /* 287 - 225 - 46 */
+  width: 350px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ресницы, первый аккордеон: картинка в потоке сверху (272px от верха), текст под ней — без перекрытия */
+.obuchenie__accordion-body--resnitsy-day1 {
+  padding-top: 5px;
+  /* отступ до картинки от верха аккордеона */
+  min-height: 917px;
+  /* последний текст на 974px + высота */
+  left: 0px;
+}
+
+.obuchenie__accordion-img--resnitsy-day1 {
+  display: block;
+  width: 302px;
+  height: 246px;
+  /* 20px слева → итого 24+20=44px от края тела */
+  object-fit: cover;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+/* Тексты под картинкой: позиции от верха тела (первый текст после картинки) */
+.obuchenie__accordion-resnitsy-day1__text {
+  position: absolute;
+  left: 24px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+
+.obuchenie__accordion-resnitsy-day1__text--1 {
+  top: 290px;
+  width: 118px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--2 {
+  top: 330px;
+  width: 262px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--3 {
+  top: 370px;
+  width: 118px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--4 {
+  top: 410px;
+  width: 144px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--5 {
+  top: 450px;
+  width: 320px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--6 {
+  top: 510px;
+  width: 320px;
+  min-height: 40px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--7 {
+  top: 590px;
+  width: 200px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--8 {
+  top: 630px;
+  width: 320px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--9 {
+  top: 690px;
+  width: 320px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--10 {
+  top: 730px;
+  width: 280px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--11 {
+  top: 770px;
+  width: 300px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--12 {
+  top: 810px;
+  width: 280px;
+  min-height: 20px;
+}
+
+.obuchenie__accordion-resnitsy-day1__text--13 {
+  top: 850px;
+  width: 172px;
+  min-height: 40px;
+}
+
+/* Ресницы, второй аккордеон: все размеры от верхнего края второго аккордеона */
+.obuchenie__accordion-body--resnitsy-day2 {
+  padding-top: 47px;
+  min-height: 520px;
+}
+.obuchenie__accordion-img--resnitsy-day2 {
+  margin-top: 0;
+  margin-left: 0;
+  margin-bottom: 24px;
+}
+.obuchenie__accordion-resnitsy-day2__caption {
+  position: absolute;
+  top: 309px;
+  left: 86px;
+  width: 178px;
+  height: 20px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+.obuchenie__accordion-resnitsy-day2__title {
+  position: absolute;
+  top: 361px;
+  left: 65px;
+  width: 219px;
+  height: 18px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+.obuchenie__accordion-resnitsy-day2__item {
+  position: absolute;
+  left: 24px;
+  margin: 0;
+  box-sizing: border-box;
+  opacity: 0.6;
+  font-family: var(--font-onest);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: var(--color-text);
+}
+.obuchenie__accordion-resnitsy-day2__item--1 { top: 403px; width: 53px; height: 20px; }
+.obuchenie__accordion-resnitsy-day2__item--2 { top: 439px; width: 179px; height: 20px; }
+.obuchenie__accordion-resnitsy-day2__item--3 { top: 475px; width: 67px; height: 20px; }
+
+/* Страница «Ресницы»: те же отступы при закрытых/открытых аккордеонах (2 аккордеона) */
+.obuchenie__inner--resnitsy {
+  padding-top: calc(736px + 55px + var(--spacing-lg));
+}
+
+.obuchenie--accordion-open .obuchenie__inner--resnitsy {
   padding-top: var(--spacing-lg);
 }
