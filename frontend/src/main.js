@@ -3,7 +3,6 @@ import './styles/tokens.css';
 import './styles/base.css';
 import './styles/components.css';
 import './styles/layout.css';
-import './styles/page-specific.css';
 import './styles/mobile.css';
 import './styles/tablet.css';
 
@@ -240,3 +239,9 @@ if (feedbackReviews && feedbackReviewsTrack) {
 
   updateReviewsSlider(0);
 }
+
+function showPage() {
+  document.body.classList.add('is-ready');
+}
+requestAnimationFrame(showPage);
+setTimeout(showPage, 2000);

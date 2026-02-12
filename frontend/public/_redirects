@@ -1,0 +1,5 @@
+# Чистые URL без .html (rewrite: отдаём .html, URL в браузере остаётся без расширения)
+/obuchenie  /obuchenie.html  200
+/brovi      /brovi.html  200
+/resnitsy   /resnitsy.html  200
+/podval     /podval.html  200

@@ -8,14 +8,10 @@
 
 html {
   font-size: 16px;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Убираем серый тап-хайлайт на iOS */
   -webkit-tap-highlight-color: transparent;
-}
-
-html {
-  overflow-x: hidden;
 }
 
 body {
@@ -26,6 +22,12 @@ body {
   background-color: var(--color-bg);
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+/* Плавное появление после загрузки стилей (убирает мелькание голого HTML при переходе) */
+body.is-ready {
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
 }
 
 /* Строго 390px по макету на мобилке, не шире; верхний отступ под фиксированный хедер */

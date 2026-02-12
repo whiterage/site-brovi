@@ -3,9 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="/logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>пися</title>
+    <title>Приймак Алина — обучение, перманентный макияж</title>
+    <meta name="description" content="Приймак Алина — перманентный макияж и обучение в Краснодаре. Более 3000 довольных клиентов, авторские курсы по бровям и ресницам. Запись на процедуры и обучение.">
+    <style>html,body{margin:0;background:#fff;min-height:100vh;} body{opacity:0;} .nav-panel{opacity:0;pointer-events:none;}</style>
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="preload" href="/Frame%2011.png" as="image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@200;400;600&display=swap" rel="stylesheet">
@@ -17,10 +20,10 @@
             <div class="header__container container">
                 <div class="header__ui">
                     <span class="header__logo" aria-hidden="true">
-                        <img src="/logo.png" alt="" class="logo" width="56" height="31">
+                        <img src="/logo.png" alt="" class="logo" width="56" height="31" decoding="async">
                     </span>
                     <a href="#" class="btn-icon header__btn-icon" id="header-nav-btn" aria-label="Меню">
-                        <img src="/Vector.png" alt="" class="btn-icon__img" width="16" height="14">
+                        <img src="/Vector.png" alt="" class="btn-icon__img" width="16" height="14" decoding="async">
                     </a>
                 </div>
             </div>
@@ -48,7 +51,7 @@
                 <img src="/navi/Vector%20(2).svg" alt="" class="nav-panel__close-icon" width="16" height="14" aria-hidden="true">
             </button>
             <nav class="nav-panel__nav">
-                <a href="obuchenie.html" class="nav-panel__link">Обучение</a>
+                <a href="/obuchenie" class="nav-panel__link">Обучение</a>
                 <a href="#alina" class="nav-panel__link">О мастере</a>
                 <a href="#alina" class="nav-panel__link">Портфолио</a>
                 <a href="#pricelist-brows" class="nav-panel__link">Прайс лист</a>
@@ -59,7 +62,7 @@
         <main class="main">
             <section class="hero" id="hero">
                 <div class="hero__visual" id="hero-visual">
-                    <img src="/Frame%2011.png" alt="" class="hero__img" width="390" height="358" loading="eager">
+                    <img src="/Frame%2011.png" alt="" class="hero__img" width="390" height="358" loading="eager" fetchpriority="high" decoding="async">
                 </div>
                 <div class="hero__content">
                     <h1 class="hero__title"><span class="hero__title-line">PRIYMAK <span
@@ -90,7 +93,7 @@
                 <img src="/cardForMasters2.png" alt="" class="masters__card masters__card--2" width="349" height="236"
                     loading="lazy">
                 <img src="/cardForMasters.png" alt="" class="masters__card" width="350" height="236" loading="lazy">
-                <a href="obuchenie.html" class="masters__btn" id="masters-obuchenie-btn" aria-label="Обучение">
+                <a href="/obuchenie" class="masters__btn" id="masters-obuchenie-btn" aria-label="Обучение">
                     <img src="/btnForMasters.svg" alt="" class="masters__btn-img" width="350" height="55"
                         loading="lazy">
                 </a>
@@ -168,7 +171,7 @@
                     loading="lazy">
                 <img src="/aeth/5.png" alt="" class="aesthetics__img aesthetics__img--5" width="169" height="170"
                     loading="lazy">
-                <a href="podval.html" class="aesthetics__btn" aria-label="Посмотреть все">
+                <a href="/podval" class="aesthetics__btn" aria-label="Посмотреть все">
                     <img src="/btnAESTH.svg" alt="" class="aesthetics__btn-img" width="350" height="55" loading="lazy">
                 </a>
             </section>

@@ -93,3 +93,9 @@ if (fullscreen) {
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && fullscreen?.classList.contains('is-open')) closeFullscreen();
 });
+
+function showPage() {
+  document.body.classList.add('is-ready');
+}
+requestAnimationFrame(showPage);
+setTimeout(showPage, 2000);

@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "frontend/dist",
+  "rewrites": [
+    { "source": "/obuchenie", "destination": "/obuchenie.html" },
+    { "source": "/brovi", "destination": "/brovi.html" },
+    { "source": "/resnitsy", "destination": "/resnitsy.html" },
+    { "source": "/podval", "destination": "/podval.html" }
+  ]
+}

@@ -71,3 +71,9 @@ document.querySelectorAll('.obuchenie__accordion').forEach((accordion) => {
     updateAccordionOpenState();
   });
 });
+
+function showPage() {
+  document.body.classList.add('is-ready');
+}
+requestAnimationFrame(showPage);
+setTimeout(showPage, 2000);
