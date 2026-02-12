@@ -1,0 +1,244 @@
+/* Страница «Подвал»: контент сверху, подвал (обратная связь + контакты) внизу, 390×2312 */
+
+.podval {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 390px;
+  max-width: 100%;
+  min-height: 2312px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--color-bg);
+  box-sizing: border-box;
+  overflow-x: hidden;
+  opacity: 1;
+}
+
+/* Область для контента — растёт, подвал остаётся внизу; z-index чтобы картинки поверх подвала были кликабельны */
+.podval__content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  padding-top: 90px;
+}
+
+/* Заголовок «ЭСТЕТИКА» / «в деталях»: 185×70, top 60px, left 103px; Onest 200 ExtraLight, 32px, 110%, center */
+.podval__title {
+  position: absolute;
+  top: 60px;
+  left: 103px;
+  width: 185px;
+  min-height: 70px;
+  margin: 0;
+  font-family: var(--font-onest);
+  font-weight: 200;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  opacity: 1;
+  box-sizing: border-box;
+}
+
+.podval__title-line {
+  display: block;
+}
+
+/* «в деталях»: Onest 500 Medium, 32px, 110%, center + градиент */
+.podval__title-line--gradient {
+  font-family: var(--font-onest);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 110%;
+  letter-spacing: 0;
+  text-align: center;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Подвал прижат к низу страницы (z-index ниже контента, чтобы не перехватывать клики по картинкам) */
+.podval__footer {
+  position: relative;
+  z-index: 0;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
+.section-feedback--podval {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.podval__img--1 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 162px;
+  left: 20px;
+}
+
+.podval__img--2 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 162px;
+  left: 201px;
+}
+
+.podval__img--3 {
+  position: absolute;
+  width: 350px;
+  height: 158px;
+  top: 344px;
+  left: 20px;
+}
+
+.podval__img--4 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 514px;
+  left: 20px;
+}
+
+.podval__img--5 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 514px;
+  left: 201px;
+}
+
+.podval__img--6 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 696px;
+  left: 20px;
+}
+
+.podval__img--7 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 878px;
+  left: 20px;
+}
+
+.podval__img--8 {
+  position: absolute;
+  width: 169px;
+  height: 352px;
+  top: 696px;
+  left: 201px;
+}
+
+.podval__img--9 {
+  position: absolute;
+  width: 350px;
+  height: 170px;
+  top: 1060px;
+  left: 20px;
+}
+
+.podval__img--10 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 1242px;
+  left: 20px;
+}
+
+.podval__img--11 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 1242px;
+  left: 201px;
+}
+
+.podval__img--12 {
+  position: absolute;
+  width: 169px;
+  height: 352px;
+  top: 1424px;
+  left: 20px;
+}
+
+.podval__img--13 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 1424px;
+  left: 201px;
+}
+
+.podval__img--14 {
+  position: absolute;
+  width: 169px;
+  height: 170px;
+  top: 1606px;
+  left: 201px;
+}
+
+/* Полноэкранный просмотр фото */
+.podval__fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.podval__fullscreen.is-open {
+  display: flex;
+}
+/* Не растягиваем выше натурального размера — без ужасного апскейла; для идеала подставьте в img data-fullscreen-src на версию в высоком разрешении */
+.podval__fullscreen-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  image-rendering: auto;
+}
+.podval__fullscreen-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10000;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+.podval__fullscreen-close:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+.podval__fullscreen-close svg {
+  width: 24px;
+  height: 24px;
+}
+body.podval-fullscreen-open {
+  overflow: hidden;
+}
+.podval__content img[class*="podval__img"] {
+  cursor: pointer;
+}
